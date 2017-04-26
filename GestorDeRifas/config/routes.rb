@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'signin/signin'
+
   get 'login/login'
 
   root 'welcome#homepage'
