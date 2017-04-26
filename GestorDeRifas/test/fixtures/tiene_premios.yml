@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rifa_id: MyString
+  integer: MyString
+  premio_id: MyString
+  integer: MyString
+
+two:
+  rifa_id: MyString
+  integer: MyString
+  premio_id: MyString
+  integer: MyString

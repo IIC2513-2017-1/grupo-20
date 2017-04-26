@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rifas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha inicio</th>
+      <th>Fecha termino</th>
+      <th>Titulo</th>
+      <th>R</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rifas.each do |rifa| %>
+      <tr>
+        <td><%= rifa.fecha_inicio %></td>
+        <td><%= rifa.fecha_termino %></td>
+        <td><%= rifa.titulo %></td>
+        <td><%= rifa.r_id %></td>
+        <td><%= link_to 'Show', rifa %></td>
+        <td><%= link_to 'Edit', edit_rifa_path(rifa) %></td>
+        <td><%= link_to 'Destroy', rifa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rifa', new_rifa_path %>

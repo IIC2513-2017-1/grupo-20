@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  premio: MyString
+  string: MyString
+  importancio: MyString
+  integer: MyString
+
+two:
+  premio: MyString
+  string: MyString
+  importancio: MyString
+  integer: MyString
