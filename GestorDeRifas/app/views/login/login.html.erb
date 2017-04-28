@@ -1,5 +1,8 @@
+
 <h1>Log in</h1>
 
 <%=render 'login_form'%>
 
-<p>Find me in app/views/login/login.html.erb</p>
+<p>¿No tienes cuenta? <%= link_to 'Registrate', new_user_path %></p>
+
+<%= link_to 'Volver al home', root_path %>

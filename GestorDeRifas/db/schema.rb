@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426154734) do
+ActiveRecord::Schema.define(version: 20170428022205) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "boughts", force: :cascade do |t|
     t.string   "username"
@@ -63,15 +66,16 @@ ActiveRecord::Schema.define(version: 20170426154734) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "username"
+  create_table "users", id: false, force: :cascade do |t|
+    t.string   "username",        null: false
     t.text     "bio"
     t.integer  "age"
     t.string   "email"
-    t.binary   "profile_pic"
     t.string   "password"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
 end
