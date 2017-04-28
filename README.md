@@ -1,6 +1,24 @@
-# IIC2513 — Tecnologías y Aplicaciones Web
+# README
 
-## Proyecto Gestor de Rifas
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Este proyecto trata de crear una plataforma para organizar y desarrollar rifas, con generación de los sorteos. Los usuarios involucrados serán capaces de crear, administrar, ver, buscar y comprar rifas a través de una plataforma web.
+Things you may want to cover:
 
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
