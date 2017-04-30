@@ -9,8 +9,9 @@ development:
  encoding: unicode
  database: demo_test_development
  pool: 5
+ host: localhost
  username: carlos
- password:
+ password: carlos
  timeout: 5000
 
 
@@ -26,8 +27,9 @@ test:
  encoding: unicode
  database: demo_test_test
  pool: 5
+ host: localhost
  username: carlos
- password:
+ password: carlos
  timeout: 5000
 
 #
