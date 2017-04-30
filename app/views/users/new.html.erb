@@ -1,7 +1,15 @@
-<h1>New User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Volver al Log in', login_login_path %>
-
-<p> <%= link_to 'Volver al home', root_path %></p>
+<div class="create">
+  <div class="container">
+   	<%= form_for(@user) do |f| %>
+  		<div class="field">
+    		<%= f.label :name %><br>
+    		<%= f.text_area :name %><br>
+        <%= f.label :mail %><br>
+    		<%= f.text_area :mail %><br>
+  		</div>
+  		<div class="actions">
+    		<%= f.submit "Create" %>
+  		</div>
+		<% end %>
+  </div>
+</div>

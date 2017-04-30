@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
-
-  get 'signin/signin'
-
-  get 'login/login'
-
-  root 'welcome#homepage'
-  #get 'welcome/homepage'
-
-  resources :users, param: :username do
-    resources :rifas
-  end
+  get '/users' => 'users#index'
+  get '/rifas' => 'rifas#index'
+  get '/users/new' => 'users#new'
+  post 'users' => 'users#create'
+  get '/user/:id' => 'users#show', as: :user
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
