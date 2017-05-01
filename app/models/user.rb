@@ -16,8 +16,7 @@ class User < ApplicationRecord
     username
   end
 
-  has_many :owns
-  has_many :rifas, through: :owns
+  has_many :rifas, primary_key: 'username'
   has_many :user, through: :follows
   has_many :boughts
   has_many :rifas, through: :boughts

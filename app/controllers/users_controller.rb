@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     #@user = User.find(params[:username])
-    @user = User.all
+    @user = User.find(params[:username])
     render action: 'show'
   end
 
