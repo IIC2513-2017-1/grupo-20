@@ -33,12 +33,13 @@ test:
  timeout: 5000
 
 #
-#production:
-# adapter: postgresql
-# encoding: unicode
-# database: demo_test_production
-# pool: 5
-# username: carlos
-# password:
-# timeout: 5000
+Production:
+adapter: postgresql
+encoding: unicode
+database: demo_test_production
+pool: 5
+host: localhost
+username: carlos
+password: carlos
+timeout: 5000
 
