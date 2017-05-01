@@ -24,6 +24,7 @@ class RifasController < ApplicationController
   # POST /rifas
   # POST /rifas.json
   def create
+
     @rifa = Rifa.new(rifa_params)
 
     respond_to do |format|
