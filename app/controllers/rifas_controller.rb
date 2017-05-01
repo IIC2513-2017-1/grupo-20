@@ -15,6 +15,8 @@ class RifasController < ApplicationController
   # GET /rifas/new
   def new
     @rifa = Rifa.new
+
+
   end
 
   # GET /rifas/1/edit
@@ -25,7 +27,30 @@ class RifasController < ApplicationController
   # POST /rifas.json
   def create
 
-    @rifa = Rifa.new(rifa_params)
+    rifa_params.each do |pa|
+    puts pa
+  end
+
+    @rifa = Rifa.new(titulo: rifa_params[:titulo], fecha_inicio: rifa_params[:fecha_inicio],
+                     fecha_termino: rifa_params[:fecha_termino])
+    @rifa.save
+
+
+
+
+    @rifa.premios.create(premio: rifa_params[:premios][:premio1], importancia: 1)
+    #@premio = Premio.new(premio: rifa_params[:premio1], importancia: 1)
+    #@tiene_premio = TienePremio.new(rifa_id: @rifa.id, premio_id: @premio.id)
+
+
+    if rifa_params[:premio2].present?
+      @premio = Premio.new(premio: rifa_params[:premio2], importancia: 2)
+    end
+
+    if rifa_params[:premio3].present?
+      @premio = Premio.new(premio: rifa_params[:premio3], importancia: 3)
+    end
+
 
     respond_to do |format|
       if @rifa.save
@@ -70,6 +95,6 @@ class RifasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rifa_params
-      params.require(:rifa).permit(:fecha_inicio, :fecha_termino, :titulo, :r_id)
+      params.require(:rifa).permit(:fecha_inicio, :fecha_termino, :titulo, :premios)
     end
 end

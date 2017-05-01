@@ -1,4 +1,4 @@
-<%= form_for(rifa, tiene_premio) do |f| %>
+<%= form_for(rifa) do |f| %>
   <% if rifa.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(rifa.errors.count, "error") %> prohibited this rifa from being saved:</h2>
@@ -20,26 +20,32 @@
     <%= f.label :fecha_termino %>
     <%= f.datetime_select :fecha_termino %>
   </div>
-
-  <div class="field">
-    <%= f.label :titulo %>
-    <%= f.text_field :titulo %>
-  </div>
-
     <div class="field">
-      <%= f.label 'Premio 1' %>
-      <%= f.text_field :p %>
+      <%= f.label :titulo %>
+      <%= f.text_field :titulo %>
     </div>
 
-    <div class="field">
-      <%= f.label 'Premio 2' %>
-      <%= f.text_field :p2 %>
-    </div>
+    <%= f.fields_for :premios do |premio_form| %>
+      <div class="field">
 
-    <div class="field">
-      <%= f.label 'Premio 3' %>
-      <%= f.text_field :p3 %>
-    </div>
+        <%= premio_form.label 'Premio 1'%>
+        <%= premio_form.text_field :premio1 %>
+      </div>
+
+        <div class="field">
+
+          <%= premio_form.label 'Premio 2'%>
+          <%= premio_form.text_field :premio2 %>
+        </div>
+        <div class="field">
+
+          <%= premio_form.label 'Premio 3'%>
+          <%= premio_form.text_field :premio3 %>
+        </div>
+        <% end %>
+
+
+
 
   <div class="actions">
     <%= f.submit %>
