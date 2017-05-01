@@ -5,7 +5,6 @@ class CreateRifas < ActiveRecord::Migration[5.0]
       t.datetime :fecha_termino
       t.string :titulo
       t.integer :r_id
-
       t.timestamps
     end
   end
