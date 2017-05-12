@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501004913) do
+ActiveRecord::Schema.define(version: 20170508140248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,20 @@ ActiveRecord::Schema.define(version: 20170501004913) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "raffles", id: :bigserial, force: :cascade do |t|
+    t.string   "title"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rifas", force: :cascade do |t|
     t.datetime "fecha_inicio"
     t.datetime "fecha_termino"
     t.string   "titulo"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_rifas_on_user_id", using: :btree
+    t.string   "username"
   end
 
   create_table "tiene_premios", force: :cascade do |t|

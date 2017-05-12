@@ -27,29 +27,23 @@ class RifasController < ApplicationController
   # POST /rifas.json
   def create
 
-    rifa_params.each do |pa|
-    puts pa
-  end
-
     @rifa = Rifa.new(titulo: rifa_params[:titulo], fecha_inicio: rifa_params[:fecha_inicio],
                      fecha_termino: rifa_params[:fecha_termino])
-    @rifa.save
 
+    #@rifa.save
 
-
-
-    @rifa.premios.create(premio: rifa_params[:premios][:premio1], importancia: 1)
+    @rifa.premios << Premio.new(premio: rifa_params.dig(:premios,:premio1), importancia: 1)
     #@premio = Premio.new(premio: rifa_params[:premio1], importancia: 1)
     #@tiene_premio = TienePremio.new(rifa_id: @rifa.id, premio_id: @premio.id)
 
 
-    if rifa_params[:premio2].present?
-      @premio = Premio.new(premio: rifa_params[:premio2], importancia: 2)
-    end
-
-    if rifa_params[:premio3].present?
-      @premio = Premio.new(premio: rifa_params[:premio3], importancia: 3)
-    end
+    # if rifa_params[:premio2].present?
+    #   @premio = Premio.new(premio: rifa_params[:premio2], importancia: 2)
+    # end
+    #
+    # if rifa_params[:premio3].present?
+    #   @premio = Premio.new(premio: rifa_params[:premio3], importancia: 3)
+    # end
 
 
     respond_to do |format|
