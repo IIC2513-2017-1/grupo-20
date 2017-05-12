@@ -8,5 +8,5 @@
 u1 = User.create(name: 'mati', mail: 'mieynaudi@uc.cl')
 u2 = User.create(name: 'pepe', mail: 'ppeynaudi@uc.cl')
 
-r1 = Rifa.create(owner: u1.name, price: 1000, numbers: 10, user_id: u1.id)
-r2 = Rifa.create(owner: u2.name, price: 1500, numbers: 15, user_id: u1.id)
+r1 = Rifa.create(owner: u1.name, price: 1000, numbers: 10, user_id: u1.id, title:"iPhone 5")
+r2 = Rifa.create(owner: u2.name, price: 1500, numbers: 15, user_id: u2.id, title:"iPhone 5")

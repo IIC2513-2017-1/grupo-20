@@ -1,11 +1,16 @@
 <div class="main">
-  <div class="container">
-    <h1>Bienvenido a Gestor de Rifas Online!</h1>
-    <%@rifas.each do |u|%>
-      <h2><%=u.owner%></h2>
-      <p><%=u.numbers%></p>
-      <p><%=u.price%></p>
-      <p><%=link_to 'Mas informacion', rifa_path(u)%></p>
-    <%end%>
+  <div class="header">
+    <h1>Rifas Maister</h1>
+    <ul>
+      <li><%= link_to 'Log in', '#' %></li>
+      <li><%= link_to 'Sign up', '#' %></li>
+    </ul>
+  </div>
+  <div class="content-section">
+    <h2> Nuestras Rifas </h2>
+    <% @rifas.each do |rifa| %>
+      <%= rifa.owner %><br>
+      <%= rifa.price %><br>
+    <% end %>
   </div>
 </div>
