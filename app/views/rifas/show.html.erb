@@ -1,29 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="tag">
+  <div class="container">
+    <h2>Nombre de usuario: <%= @rifas.owner %></h2>
 
-<p>
-  <strong>Fecha inicio:</strong>
-  <%= @rifa.fecha_inicio %>
-</p>
+    <div class="cards row">
+      <div class="card col-xs-4">
+        <h2>precio: <%= @rifas.price %></h2>
+        <p>numeros restantes: <%= @rifas.numbers %></p>
+      </div>
+    </div>
 
-<p>
-  <strong>Fecha termino:</strong>
-  <%= @rifa.fecha_termino %>
-</p>
-
-<p>
-  <strong>Titulo:</strong>
-  <%= @rifa.titulo %>
-</p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @rifa.id %>
-</p>
-
-<p>
-  <strong>Premio:</strong>
-  <%= @rifa.premios %>
-</p>
-
-<%= link_to 'Edit', edit_rifa_path(@rifa) %> |
-<%= link_to 'Back', rifas_path %>
+  </div>
+</div>

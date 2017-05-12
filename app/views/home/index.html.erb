@@ -1,12 +1,11 @@
 <div class="main">
   <div class="container">
-    <h1>Hello my name is Matias</h1>
-    <p>I make Rails apps.</p>
+    <h1>Bienvenido a Gestor de Rifas Online!</h1>
     <%@rifas.each do |u|%>
       <h2><%=u.owner%></h2>
       <p><%=u.numbers%></p>
       <p><%=u.price%></p>
+      <p><%=link_to 'Mas informacion', rifa_path(u)%></p>
     <%end%>
-    <p><%= link_to 'Crear Rifa', new_user_rifa_path(@rifas)%></p>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<div class="main">
+  <div class="container">
+    <%@prizes.each do |u|%>
+      <h2><%=u.name%></h2>
+    <%end%>
+    <p><%= link_to 'Agregar Premio', new_rifa_prize_path%></p>
+  </div>
+</div>
