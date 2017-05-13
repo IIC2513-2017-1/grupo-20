@@ -1,7 +1,9 @@
 <div class="main">
   <div class="header">
     <h1>Rifas Maister</h1>
+    <% if current_user%>
     <p><%=current_user.name%></p>
+    <% end %>
     <ul>
       <li><%= link_to 'Log in', '#' %></li>
       <li><%= link_to 'Sign up', '#' %></li>
