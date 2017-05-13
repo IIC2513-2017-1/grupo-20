@@ -1,11 +1,11 @@
 <div class="create">
   <div class="container">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@session) do |f| %>
         <div class="field">
           <%= f.label :name %><br>
           <%= f.text_area :name %><br>
-          <%= f.label :mail %><br>
-          <%= f.text_area :mail %><br>
+          <%= f.label :password %><br>
+          <%= f.text_area :password%><br>
         </div>
         <div class="actions">
           <%= f.submit "Create" %>
