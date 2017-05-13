@@ -2,11 +2,14 @@
   <div class="header">
     <h1>Rifas Maister</h1>
     <% if current_user%>
-    <p><%=current_user.name%></p>
+    <p><%="Usuario actual: #{current_user.name}"%></p>
+    <%= link_to 'Perfil', user_path(current_user)%>
     <% end %>
     <ul>
+      <% unless current_user%>
       <li><%= link_to 'Log in', login_path %></li>
       <li><%= link_to 'Sign up', new_user_path %></li>
+      <% end %>
     </ul>
   </div>
   <div class="content-section">
@@ -31,6 +34,7 @@
             <li>Fecha de inicio: <%= rifa.created_at %></li>
             <li>Fecha de de termino: <%= rifa.end_date %></li>
             <li>Precio: <%= rifa.price %></li>
+            <li><%=link_to 'Comprar', rifa_path(rifa)%></li>
           </ul>
         </div>
     <% end %>

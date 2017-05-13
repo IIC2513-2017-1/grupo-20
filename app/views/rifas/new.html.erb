@@ -2,14 +2,12 @@
   <div class="container">
    	<%= form_for(@rifa) do |f| %>
   		<div class="field">
-    		<%= f.label :Usuario %><br>
-    		<%= f.text_area :owner %><br>
+    		<%= f.label :Titulo %><br>
+    		<%= f.text_area :title %><br>
         <%= f.label :Precio %><br>
     		<%= f.text_area :price %><br>
         <%= f.label :Numeros %><br>
     		<%= f.text_area :numbers %><br>
-        <%= f.label :user_id %>
-        <%= f.select :user_id, User.all.collect { |user| [ user.name, user.id ] }, { include_blank: true }, { required: true } %>
   		</div>
   		<div class="actions">
     		<%= f.submit "Create" %>

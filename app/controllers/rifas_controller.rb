@@ -11,13 +11,13 @@ class RifasController < ApplicationController
   def create
     @rifa = Rifa.new(rifa_params)
     if @rifa.save
-      redirect_to rifas_path
+      redirect_to rifa_prizes_path(@rifa.id)
     else
       render 'new'
     end
   end
   private
     def rifa_params
-      params.require(:rifa).permit(:owner, :user_id, :price, :numbers)
+      params.require(:rifa).permit(:title, :price, :numbers).merge({user_id: current_user.id, owner: current_user.name})
     end
 end
