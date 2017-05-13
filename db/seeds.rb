@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-u1 = User.create(name: 'mati', mail: 'mieynaudi@uc.cl')
-u2 = User.create(name: 'pepe', mail: 'ppeynaudi@uc.cl')
+u1 = User.create(name: 'mati', mail: 'mieynaudi@uc.cl', password: '1234')
+u2 = User.create(name: 'pepe', mail: 'ppeynaudi@uc.cl', password: '12345')
 
 
 r1 = Rifa.create(owner: u1.name, price: 1000, numbers: 10, user_id: u1.id, title:"Celulares varios",
