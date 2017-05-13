@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512231643) do
+ActiveRecord::Schema.define(version: 20170513204517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "prizes", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "rifa_id"
     t.integer  "importance"
+    t.string   "name"
     t.index ["rifa_id"], name: "index_prizes_on_rifa_id", using: :btree
   end
 

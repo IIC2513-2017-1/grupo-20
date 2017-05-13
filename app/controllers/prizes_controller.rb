@@ -1,6 +1,6 @@
 class PrizesController < ApplicationController
   def index
-    @prizes = Prize.all
+    @prizes = Prize.where(rifa_id: params[:rifa_id])
   end
   def show
     @prizes = Prize.find(params[:id])
