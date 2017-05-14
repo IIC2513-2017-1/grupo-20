@@ -1,21 +1,22 @@
 <div class="tag">
   <div class="container">
-    <h2>Nombre de usuario: <%= @rifas.owner %></h2>
-        <div class="raffle">
-          <h3> Rifa <%= @rifas.title %>:<br></h3>
+        <div class="raffle-view">
+          <h2> Rifa <%= @rifas.title %><br></h2>
           <ul>
-            <li>Premios:
-            <% n_prizes = @rifas.prizes.count() %>
-            <% count = 0 %>
-            <% @rifas.prizes.each do |prize| %>
-              <% count += 1 %>
-              <% if count == n_prizes%>
-                  <%= prize.name + '.' %>
-              <% else %>
-                  <%= prize.name + ', ' %>
-              <%end%>
-            <%end%>
-            </li>
+            <div class="premios">
+              <li>Premios:
+                <% n_prizes = @rifas.prizes.count() %>
+                <% count = 0 %>
+                <% @rifas.prizes.each do |prize| %>
+                  <% count += 1 %>
+                  <% if count == n_prizes%>
+                      <%= prize.name + '.' %>
+                  <% else %>
+                      <%= prize.name + ', ' %>
+                  <%end%>
+                <%end%>
+              </li>
+            </div>
             <li>Dueño: <%= @rifas.owner %></li>
             <li>Fecha de inicio: <%= @rifas.created_at %></li>
             <li>Fecha de de termino: <%= @rifas.end_date %></li>

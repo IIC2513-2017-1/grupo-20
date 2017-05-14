@@ -1,24 +1,5 @@
 <div class="main">
-  <div class="header">
-    <ul class="nav">
-      <% unless current_user%>
-          <div class="session-button">
-          <li><%= link_to 'Log in', login_path %></li>
 
-          <li><%= link_to 'Sign up', new_user_path %></li>
-          </div>
-      <% end %>
-    </ul>
-    <div class="title">
-    <h1>Rifas Maister</h1>
-    </div>
-    <% if current_user%>
-    <p><%="Usuario actual: #{current_user.name}"%></p>
-    <%= link_to 'Perfil', user_path(current_user)%>
-    <%= link_to 'log out', logout_path%>
-    <% end %>
-
-  </div>
   <div class="content-section">
     <h2>Explora y Busca Rifas </h2>
     <% @rifas.each do |rifa| %>
@@ -41,7 +22,7 @@
             <li><b>Fecha de inicio: </b><%= rifa.created_at %></li>
             <li><b>Fecha de termino: </b><%= rifa.end_date %></li>
             <li><b>Precio: </b><%= rifa.price %></li>
-            <li class="button"><%=button_to 'Comprar', rifa_path(rifa), method: "get"%></li>
+            <li class="button"><%=button_to 'Ver rifa', rifa_path(rifa), method: "get"%></li>
           </ul>
         </div>
     <% end %>

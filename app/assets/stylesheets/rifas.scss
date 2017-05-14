@@ -1,3 +1,24 @@
 // Place all the styles related to the Rifas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.raffle-view{
+  border: 2px solid #888888;
+  margin: 10px;
+  background-color: #FFFFFF;
+  h2{
+  margin: 10px;
+  border-bottom: 1px solid #dddddd;
+  }
+  ul {
+  list-style-type: none;
+  padding-left: 30px;
+  }
+  ul li{
+  padding: 1px;
+  }
+}
+.premios {
+  padding: 50px 10px 50px 10px;
+  border: 1px solid #dddddd;
+}
