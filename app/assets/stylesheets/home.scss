@@ -82,3 +82,14 @@ body {
   margin-right: 30px;
   margin-bottom: 20px;
 }
+.footer {
+  padding: 30px;
+  background-color: #444444;
+  margin: 0;
+  ul {
+    list-style-type: none;
+    li {
+      color: white;
+    }
+  }
+}
