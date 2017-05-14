@@ -1,6 +1,6 @@
 <div class="create">
   <div class="container">
-   	<%= form_for(rifa_prizes_path) do |f| %>
+   	<%= form_for @prize, url:{ controller: :prizes, action: :create } do |f| %>
   		<div class="field">
         <%= f.label :Premio %><br>
     		<%= f.text_area :name %><br>
@@ -9,5 +9,5 @@
     		<%= f.submit "Create" %>
   		</div>
 		<% end %>
-  </div>
+    </div>
 </div>

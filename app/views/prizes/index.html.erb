@@ -3,6 +3,7 @@
     <%@prizes.each do |u|%>
       <h2><%=u.name%></h2>
     <%end%>
-    <p><%= link_to 'Agregar Premio', new_rifa_prize_path%></p>
+    <p><%= link_to 'Agregar Premio', new_rifa_prize_path()%></p>
+    <p><%= link_to 'Finalizar', user_rifas_path(current_user.id)%></p>
   </div>
 </div>

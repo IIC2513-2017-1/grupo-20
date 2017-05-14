@@ -11,13 +11,13 @@ class PrizesController < ApplicationController
   def create
     @prize = Prize.new(prize_params)
     if @prize.save
-      redirect_to rifas_path
+      redirect_to rifa_prizes_path
     else
       render 'new'
     end
   end
   private
     def prize_params
-      params.require(:prize).accept(:name)
+      params.require(:prize).permit(:name).merge({rifa_id: params[:rifa_id]})
     end
 end
