@@ -19,8 +19,8 @@
             <%end%>
             </li>
             <li><b>Dueño: </b><%= rifa.owner %></li>
-            <li><b>Fecha de inicio: </b><%= rifa.created_at %></li>
-            <li><b>Fecha de termino: </b><%= rifa.end_date %></li>
+            <li><b>Fecha de inicio: </b><%= rifa.created_at.to_formatted_s(:long) %></li>
+            <li><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
             <li><b>Precio: </b><%= rifa.price %></li>
             <li class="button"><%=button_to 'Ver rifa', rifa_path(rifa), method: "get"%></li>
           </ul>

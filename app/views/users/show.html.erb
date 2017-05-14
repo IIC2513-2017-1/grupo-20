@@ -1,14 +1,21 @@
-<div class="tag">
-  <div class="container">
-    <h2>Nombre de usuario: <%= @user.name %></h2>
+<div class="user-view">
+<div class="profile">
+  <h2>Bienvenido <%= @user.name %></h2>
+  <%= image_tag(@user.avatar.thumb.url) %>
+  <ul>
+    <li> email: <%= @user.mail %></li>
+  </ul>
+  <ul class="button">
+  <%= button_to 'Editar Perfil', edit_user_path(@user), method: "get"%>
+  </ul>
+</div>
 
 
-
-    <div class="cards-row">
-      <p>Rifas creadas:</p>
+<div class="own-raffles">
+      <h2>Tus rifas creadas</h2>
       <% @user.rifas.each do |d| %>
-      <div class="raffle">
-        <h3> Rifa <%= d.title %>:<br></h3>
+      <div class="raffle" id="own">
+        <h3> Rifa <%= d.title %><br></h3>
         <ul>
           <li>Premios:
           <% n_prizes = d.prizes.count() %>
@@ -29,9 +36,13 @@
         </ul>
       </div>
       <% end %>
-    <% if current_user%>
-    <p><%= link_to 'Crear Rifa', new_user_rifa_path(current_user.id)%></p>
-    <% end%>
-    </div>
-  </div>
+  <% if current_user%>
+      <ul class="button"><%= button_to 'Crear Rifa', new_user_rifa_path(current_user.id), method: "get"%></ul>
+  <% end%>
 </div>
+
+
+</div>
+
+
+

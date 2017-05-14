@@ -21,8 +21,7 @@ body {
   padding: 15px;
   margin: auto;
 }
-.nav li {
-  float: right;
+.nav li{
   display: inline;
   padding: 10px;
   margin-right: 15px;
@@ -32,10 +31,16 @@ body {
   background: white;
   text-align: center;
   max-height: 15px;
+}
+.session-button li {
+  float: right;
   img {
     float: right;
     margin-left: 5px;
   }
+}
+.home-button{
+  float: left;
 }
 .nav a {
   text-decoration: none;

@@ -12,6 +12,7 @@
   <div class="header">
     <% unless current_user%>
         <ul class="nav">
+          <li class="home-button"><%= link_to 'Home', root_path %></li>
           <div class="session-button">
             <li><%= link_to 'Log in', login_path %></li>
             <li><%= link_to 'Sign up', new_user_path %></li>
@@ -19,6 +20,7 @@
         </ul>
     <% else %>
         <ul class="nav">
+          <li class="home-button"><%= link_to 'Home', root_path %></li>
           <div class="session-button">
             <li><%= link_to 'log out', logout_path %></li>
             <li><%= link_to "#{current_user.name}", user_path(current_user)%> <%=image_tag(current_user.avatar.nav_bar.url)%></li>
