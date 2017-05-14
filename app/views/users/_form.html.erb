@@ -1,21 +1,19 @@
-<div class="create">
-  <div class="container">
-    <%= form_for(@user) do |f| %>
-        <div class="field">
-          <%= f.label :name %><br>
-          <%= f.text_field :name %><br>
-          <%= f.label :mail %><br>
-          <%= f.text_field :mail %><br>
-          <%= f.label :mail_confirmation %><br>
-          <%= f.text_field :mail_confirmation%><br>
-          <%= f.label :password %><br>
-          <%= f.text_field :password%><br>
-          <%= f.label :password_confirmation %><br>
-          <%= f.text_field :password_confirmation%><br>
-        </div>
-        <div class="actions">
-          <%= f.submit "Create" %>
-        </div>
-    <% end %>
-  </div>
-</div>
+<%= simple_form_for @user do |f| %>
+
+    <%= f.label :name %><br>
+    <%= f.input_field :name, placeholder: 'Enter username', error: 'Username error',
+                      input_html: { class: 'my_class' } %><br>
+
+    <%= f.label :mail %><br>
+    <%= f.input_field :mail, placeholder: 'user@domain.com' %><br>
+
+    <%= f.label :mail_confirmation %><br>
+    <%= f.input_field :mail_confirmation, placeholder: 'user@domain.com' %><br>
+
+    <%= f.label :password%><br>
+    <%= f.input_field :password, hint: 'No special characters.'%><br>
+
+    <%= f.label :password_confirmation %><br>
+    <%= f.input_field :password_confirmation%><br>
+    <%= f.button :submit %>
+<% end %>
