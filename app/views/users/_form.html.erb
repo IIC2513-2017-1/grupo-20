@@ -1,19 +1,49 @@
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, :html=> { class: 'new_user_form', multipart: true } do |f| %>
 
-    <%= f.label :name %><br>
-    <%= f.input_field :name, placeholder: 'Enter username', error: 'Username error',
-                      input_html: { class: 'my_class' } %><br>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+<div class="field">
+    <%= f.label :name  %><br>
+    <%= f.input_field :name, placeholder: 'Enter username', error: 'Username error' %><br>
+    </div>
+
+    <div class="field">
     <%= f.label :mail %><br>
     <%= f.input_field :mail, placeholder: 'user@domain.com' %><br>
+    </div>
 
+    <div class="field">
     <%= f.label :mail_confirmation %><br>
     <%= f.input_field :mail_confirmation, placeholder: 'user@domain.com' %><br>
+    </div>
 
+    <div class="field">
     <%= f.label :password%><br>
-    <%= f.input_field :password, hint: 'No special characters.'%><br>
+    <%= f.input_field :password, placeholder: '********'%><br>
+    </div>
 
+    <div class="field">
     <%= f.label :password_confirmation %><br>
-    <%= f.input_field :password_confirmation%><br>
+    <%= f.input_field :password_confirmation, placeholder: '********'%><br>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar, 'Profile pic' %><br>
+      <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %><br>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+    </div>
+    <div class="button">
     <%= f.button :submit %>
+    </div>
 <% end %>

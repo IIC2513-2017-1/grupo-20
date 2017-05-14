@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
   def new
     @user = User.new
+    @user.avatar = params[:file]
   end
   def create
     @user = User.new(user_params)
@@ -23,6 +24,6 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:name, :mail, :password)
+    params.require(:user).permit(:name, :mail, :password, :avatar)
   end
 end

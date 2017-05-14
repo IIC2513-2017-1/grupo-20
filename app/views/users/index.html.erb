@@ -3,6 +3,14 @@
     <%@users.each do |u|%>
       <h2>Nombre de usuario: <%=u.name%></h2>
       <p>Correo: <%=u.mail%></p>
+
+        <p>
+          <strong>Image:</strong>
+          <% if u.avatar.present?%>
+              <%= image_tag(u.avatar.thumb.url)%>
+          <%end%>
+        </p>
+
       <%=link_to 'Más informacion', user_path(u)%>
     <%end%>
 

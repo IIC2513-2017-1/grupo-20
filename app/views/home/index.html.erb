@@ -1,24 +1,31 @@
 <div class="main">
   <div class="header">
+    <ul class="nav">
+      <% unless current_user%>
+          <div class="session-button">
+          <li><%= link_to 'Log in', login_path %></li>
+
+          <li><%= link_to 'Sign up', new_user_path %></li>
+          </div>
+      <% end %>
+    </ul>
+    <div class="title">
     <h1>Rifas Maister</h1>
+    </div>
     <% if current_user%>
     <p><%="Usuario actual: #{current_user.name}"%></p>
     <%= link_to 'Perfil', user_path(current_user)%>
+    <%= link_to 'log out', logout_path%>
     <% end %>
-    <ul>
-      <% unless current_user%>
-      <li><%= link_to 'Log in', login_path %></li>
-      <li><%= link_to 'Sign up', new_user_path %></li>
-      <% end %>
-    </ul>
+
   </div>
   <div class="content-section">
-    <h2>Explora Y Busca Rifas </h2>
+    <h2>Explora y Busca Rifas </h2>
     <% @rifas.each do |rifa| %>
         <div class="raffle">
-          <h3> Rifa <%= rifa.title %>:<br></h3>
+          <h3> Rifa <%= rifa.title %><br></h3>
           <ul>
-            <li>Premios:
+            <li><b>Premios: </b>
             <% n_prizes = rifa.prizes.count() %>
             <% count = 0 %>
             <% rifa.prizes.each do |prize| %>
@@ -30,11 +37,11 @@
               <%end%>
             <%end%>
             </li>
-            <li>Dueño: <%= rifa.owner %></li>
-            <li>Fecha de inicio: <%= rifa.created_at %></li>
-            <li>Fecha de de termino: <%= rifa.end_date %></li>
-            <li>Precio: <%= rifa.price %></li>
-            <li><%=link_to 'Comprar', rifa_path(rifa)%></li>
+            <li><b>Dueño: </b><%= rifa.owner %></li>
+            <li><b>Fecha de inicio: </b><%= rifa.created_at %></li>
+            <li><b>Fecha de termino: </b><%= rifa.end_date %></li>
+            <li><b>Precio: </b><%= rifa.price %></li>
+            <li class="button"><%=button_to 'Comprar', rifa_path(rifa), method: "get"%></li>
           </ul>
         </div>
     <% end %>

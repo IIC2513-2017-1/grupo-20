@@ -1,5 +1,17 @@
-<h1>Register</h1>
+<div class="header">
+  <ul class="nav">
+    <div class="session-button">
+      <li><%= link_to 'Log in', login_path %></li>
+      <li><%= link_to 'Home', root_path%></li>
+    </div>
+  </ul>
+</div>
 
+<div class="content-section">
+  <div class="title">
+    <h1>Register</h1>
+  </div>
+<div class="new_user_form">
 <%= render 'form', user: @user %>
-
-<%= link_to 'Volver al home', root_path%>
+</div>
+</div>

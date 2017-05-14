@@ -5,8 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-u1 = User.create(name: 'mati', mail: 'mieynaudi@uc.cl', password: '1234')
-u2 = User.create(name: 'pepe', mail: 'ppeynaudi@uc.cl', password: '12345')
+
+u1 = User.new(name: 'mati', mail: 'mieynaudi@uc.cl', password: '1234')
+File.open(Rails.root  + "app/assets/images/perfil1.png") do |f|
+  u1.avatar = f
+end
+u1.save!
+
+u2 = User.new(name: 'pepe', mail: 'ppeynaudi@uc.cl', password: '12345')
+File.open(Rails.root  + "app/assets/images/perfil1.png") do |f|
+  u2.avatar = f
+end
+u2.save!
 
 
 r1 = Rifa.create(owner: u1.name, price: 1000, numbers: 10, user_id: u1.id, title:"Celulares varios",

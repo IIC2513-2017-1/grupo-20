@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 # simple form and country select
 gem 'simple_form'
 gem 'country_select'
+# manejo de imagenes
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

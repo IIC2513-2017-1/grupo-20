@@ -1,7 +1,75 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background: #F7F7F7 url(asset_path('background.jpg')) top left repeat;
+}
+.header {
+  padding-bottom: 15px;
+  background-color: #B00100;
+}
+.header h1{
+  text-align:center;
+  color: #F7F7F7;
+  margin-top: 1px;
+}
+.nav{
+  text-align:center;
+  padding: 15px;
+  margin: 0;
+}
+.nav li {
+  display: inline;
+}
+.nav li:last-child {
+  padding-right: 20px;
+}
+.nav a {
+  text-decoration: none;
+  padding: 5px;
+  margin-right: 10px;
+  border: 2px #2E2F30 solid;
+  color: #888888;
+  background: white;
+  float: right;
+}
+.nav a:last-child {
+  margin-right: 20px;
+}
+.content-section {
+  padding: 15px;
+  width: 600px;
+  margin: auto;
 
+}
+.content-section h2{
+  text-align:center;
+}
 .prizes li{
   display: inline;
+}
+
+.raffle{
+  border: 2px solid #888888;
+  margin: 10px;
+  background-color: #FFFFFF;
+}
+
+.raffle h3{
+  margin: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+.raffle ul{
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+.raffle ul li{
+  padding: 1px;
+}
+
+.button {
+  text-align: right;
+  margin-right: 30px;
+  margin-bottom: 20px;
 }
