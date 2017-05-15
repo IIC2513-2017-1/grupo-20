@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* La pagina de la app es: sheltered-bastion-13575.herokuapp.com/
+* Se implementó la funcionalidad de seguir a otros usuarios
+* Hay manejo de sesion
+* Se pueden crear y comprar rifas
+* Se pueden editar el perfil del usuario actual y sus rifas (menos la fecha de termino)
+* Uso de css para las vistas de la aplicacion.
