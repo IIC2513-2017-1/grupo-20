@@ -49,7 +49,7 @@
           <%if current_user%>
           <%if Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  @user.id).blank?%>
             <%unless current_user == @user%>
-                <p class="Button"><%=button_to 'Seguir', user_followers_path(@user)%></p>
+                <h3><%=link_to 'Seguir a este usuario', user_followers_path(@user)%></h3>
             <%end%>
           <%end%>
           <%unless Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  @user.id).blank?%>
