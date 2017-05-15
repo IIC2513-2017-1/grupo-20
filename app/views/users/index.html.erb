@@ -11,9 +11,17 @@
           <%end%>
         </p>
 
-      <%=link_to 'Más informacion', user_path(u)%>
+      <%=link_to 'Visitar Perfil', user_path(u)%>
+      <%if current_user%>
+      <%if Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  u.id).blank?%>
+        <%unless current_user == u%>
+            <p><%=link_to 'Seguir a este usuario', user_followers_path(u)%></p>
+        <%end%>
+      <%end%>
+      <%unless Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  u.id).blank?%>
+      <p>Ya sigues a este usuario</p>
+      <%end%>
+      <%end%>
     <%end%>
-
-    <p><%= link_to 'Crear nuevo usuario', new_user_path %></p>
   </div>
 </div>

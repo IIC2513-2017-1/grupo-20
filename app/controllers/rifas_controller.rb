@@ -16,8 +16,19 @@ class RifasController < ApplicationController
       render 'new'
     end
   end
+  def edit
+    @rifa = Rifa.find(params[:id])
+  end
+  def update
+    @rifa = Rifa.find(params[:id])
+    if @rifa.update_attributes(rifa_params)
+      redirect_to user_path(current_user)
+    else
+      render 'edit'
+    end
+  end
   private
     def rifa_params
-      params.require(:rifa).permit(:title, :price, :numbers).merge({user_id: current_user.id, owner: current_user.name})
+      params.require(:rifa).permit(:title, :price, :numbers, :end_date).merge({user_id: current_user.id, owner: current_user.name})
     end
 end

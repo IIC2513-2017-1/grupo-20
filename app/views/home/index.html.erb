@@ -23,6 +23,7 @@
             <li><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
             <li><b>Precio: </b><%= rifa.price %></li>
             <li class="button"><%=button_to 'Ver rifa', rifa_path(rifa), method: "get"%></li>
+            <li class="button"><%=button_to 'Conocer usuario', user_path(rifa.user_id), method: "get"%></li>
           </ul>
         </div>
     <% end %>
