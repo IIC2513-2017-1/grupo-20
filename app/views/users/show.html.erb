@@ -5,6 +5,7 @@
   <%= image_tag(@user.avatar.thumb.url) %>
   <ul>
     <li> email: <%= @user.mail %></li>
+    <%unless @user.admin%>
     <div class="following">
       <li>Siguiendo:
         <% n_follows = @user.following.count() %>
@@ -31,6 +32,7 @@
         <%end%>
       </li>
     </div>
+    <%end%>
 
   </ul>
   <ul class="button">
@@ -40,6 +42,7 @@
 </div>
 <%end%>
 
+<%unless @user.admin%>
 <div class="own-raffles">
       <%if current_user == @user%>
         <h2>Tus rifas creadas</h2>
@@ -97,6 +100,7 @@
       <%if current_user == @user%>
         <h2>Tus rifa compradas</h2>
       <% @user.numeros.each do |d| %>
+      <%if d.aproved%>
       <div class="raffle" id="own">
         <%@rifa = Rifa.find(d.rifa_id)%>
         <h3> Rifa <%= @rifa.title %><br></h3>
@@ -123,7 +127,74 @@
       </div>
       <% end %>
       <%end%>
+      <%end%>
 </div>
-
-
+<div class="own-raffles">
+      <%if current_user == @user%>
+        <h2>Rifas siendo procesadas por Administrador</h2>
+      <% @user.numeros.each do |d| %>
+      <%unless d.aproved%>
+      <div class="raffle" id="own">
+        <%@rifa = Rifa.find(d.rifa_id)%>
+        <h3> Rifa <%= @rifa.title %><br></h3>
+        <ul>
+          <li>Premios:
+          <% n_prizes = @rifa.prizes.count() %>
+          <% count = 0 %>
+          <% @rifa.prizes.each do |prize| %>
+            <% count += 1 %>
+            <% if count == n_prizes%>
+                <%= prize.name + '.' %>
+            <% else %>
+                <%= prize.name + ', ' %>
+            <%end%>
+          <%end%>
+        </li>
+          <li>Dueño: <%=@rifa.owner%></li>
+          <li>Fecha de inicio: <%= @rifa.created_at %></li>
+          <li>Fecha de de termino: <%= @rifa.end_date %></li>
+          <li>Precio: <%= @rifa.price %></li>
+          <li>Numeros restantes: <%= @rifa.numbers%></li>
+          <li>Tu numero: <%= d.number%></li>
+        </ul>
+      </div>
+      <% end %>
+      <%end%>
+      <%end%>
+</div>
+<%end%>
+<%if @user.admin%>
+<div class="own-raffles">
+      <h2>Compras pendientes por aprobación</h2>
+      <% @numeros.each do |num| %>
+      <%unless num.aproved%>
+      <div class="raffle" id="own">
+        <%@d = Rifa.find(num.rifa_id)%>
+        <h3> Rifa <%= @d.title %><br></h3>
+        <ul>
+          <li>Premios:
+          <% n_prizes = @d.prizes.count() %>
+          <% count = 0 %>
+          <% @d.prizes.each do |prize| %>
+            <% count += 1 %>
+            <% if count == n_prizes%>
+                <%= prize.name + '.' %>
+            <% else %>
+                <%= prize.name + ', ' %>
+            <%end%>
+          <%end%>
+        </li>
+          <li>Fecha de inicio: <%= @d.created_at %></li>
+          <li>Fecha de de termino: <%= @d.end_date %></li>
+          <li>Precio: <%= @d.price %></li>
+          <li>Numeros restantes: <%= @d.numbers%></li>
+          <li>Dueño de la rifa: <b><%= User.find(@d.user_id).name%></b></li>
+          <li>Comprador del numero: <b><%= User.find(num.user_id).name%></b></li>
+          <li>Numero comprado: <%= num.number%></li>
+          <li class="button"><%= button_to 'Aprobar compra', aprove_compra_path(num.id)%></li>
+        </ul>
+      </div>
+      <%end%>
+      <%end%>
+<%end%>
 </div>
