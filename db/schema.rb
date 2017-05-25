@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515011005) do
+ActiveRecord::Schema.define(version: 20170524203638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170515011005) do
     t.datetime "updated_at", null: false
     t.integer  "rifa_id"
     t.integer  "user_id"
+    t.boolean  "aproved"
     t.index ["rifa_id"], name: "index_numeros_on_rifa_id", using: :btree
     t.index ["user_id"], name: "index_numeros_on_user_id", using: :btree
   end
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170515011005) do
     t.string   "password"
     t.string   "password_digest"
     t.string   "avatar"
+    t.boolean  "admin"
   end
 
   add_foreign_key "rifas", "users"

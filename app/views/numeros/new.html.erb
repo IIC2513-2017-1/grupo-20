@@ -22,13 +22,16 @@
             <li>Fecha de de termino: <%= @rifas.end_date %></li>
             <li>Precio: <%= @rifas.price %></li>
             <li>Numeros restantes: <%= @rifas.numbers%></li>
+            <%if @comprados%>
+            <li>Numeros comprados: <%= @comprados%></li>
+            <%end%>
           </ul>
           <div class="create">
             <div class="container">
              	<%= form_for @numero, url: {controller: :numeros, action: :create} do |f| %>
             		<div class="field">
               		<%= f.label :Numero %><br>
-              		<%= f.text_area :number %><br>
+              		<%= f.select :number, ((0..@rifas.numbers).reject{|i| i.in?(@comprados)}.map {|i| [i,i] }) %>
             		</div>
             		<div class="actions">
               		<%= f.submit "Comprar" %>
