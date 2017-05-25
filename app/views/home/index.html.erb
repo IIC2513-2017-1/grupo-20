@@ -1,8 +1,45 @@
 <div class="main">
+  <div class="finder">
+    <ul>
+      <h2>Busca Rifas </h2>
+      <%= form_tag  root_path, :method => 'get' do%>
+
+          <li class="field">
+            <%= label_tag 'Rifa:' %>
+            <%= text_field_tag :name_search, params[:name_search] %>
+          </li>
+
+          <li class="field">
+            <%= label_tag 'Premios:' %>
+            <%= text_field_tag :premio_search, params[:premio_search] %>
+          </li>
+
+          <li class="field" >
+            <%= label_tag 'Precio:' %>
+          <div class="field-line">
+            <%= label_tag 'Min:' %>
+            <%= text_field_tag :min_price_search, params[:min_price_search] %>
+            <%= label_tag 'Max:' %>
+            <%= text_field_tag :max_price_search, params[:max_price_search] %>
+          </div>
+          </li>
+
+          <li class="field">
+            <%= label_tag 'Termina en menos de:' %>
+          <div class="field-line" id="date">
+            <%= number_field_tag :date_search, params[:date_search] %> semanas
+          </div>
+          </li>
+
+          <li class="submit-search"><%= submit_tag "Search" %></li>
+      <% end %>
+    </ul>
+      </div>
 
   <div class="content-section">
-    <h2>Explora y Busca Rifas </h2>
-    <% @rifas.each do |rifa| %>
+    <h2>Explora Rifas </h2>
+
+    <% @search.each do |rifa| %>
         <div class="raffle">
           <h3> Rifa <%= rifa.title %><br></h3>
           <ul>

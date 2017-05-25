@@ -9,6 +9,7 @@ body {
   padding-bottom: 15px;
   background-color: #B00100;
   margin: 0;
+  clear: both;
 }
 .header h1{
   padding-bottom: 15px;
@@ -45,46 +46,96 @@ body {
 .nav a {
   text-decoration: none;
 }
-.content-section {
-  padding: 15px;
-  width: 600px;
-  margin: auto;
 
+h2 {
+  display: block;
+  padding-left: 15px;
+  text-align: left;
 }
-.content-section h2{
-  text-align:center;
+
+.content-section {
+  float: right;
+  padding-right: 100px;
+  width: 800px;
+  height: 1000px;
+  margin: 10px 10px 10px 10px;
+  overflow: scroll;
+  .prizes li {
+    display: inline;
+  }
+  .raffle {
+    border: 2px solid #888888;
+    margin: 10px;
+    background-color: #FFFFFF;
+    h3 {
+      margin: 10px;
+      border-bottom: 1px solid #dddddd;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 30px;
+      li {
+        padding: 1px;
+      }
+    }
+    .button {
+      text-align: right;
+      margin-right: 30px;
+      margin-bottom: 20px;
+    }
+  }
 }
-.prizes li{
+
+.finder {
+  float: left;
+  width: 300px;
+  margin: 10px  10px 10px 10px;
+  ul {
+    list-style-type: none;
+    text-align: left;
+    .form {
+      float: right;
+    }
+    li{
+      padding-left: 5px ;
+      padding-right: 5px ;
+      input{
+        width: 80px;
+      }
+    }
+  }
+  .field{
+    display: block;
+    border: solid #F7F7F7;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    input{
+      display: block;
+      margin-left: 40px;
+    }
+  }
+  .field-line{
+    display: block;
+    padding-bottom: 0;
+    padding-left: 20px;
+    input{
+      display: block;
+      margin-left: 20px;
+    }
+  }
+  .submit-search {
+    display: block;
+    margin-top: 20px;
+  }
+}
+#date input {
   display: inline;
 }
 
-.raffle{
-  border: 2px solid #888888;
-  margin: 10px;
-  background-color: #FFFFFF;
-}
-
-.raffle h3{
-  margin: 10px;
-  border-bottom: 1px solid #dddddd;
-}
-.raffle ul{
-  list-style-type: none;
-  padding-left: 30px;
-}
-
-.raffle ul li{
-  padding: 1px;
-}
-
-.button {
-  text-align: right;
-  margin-right: 30px;
-  margin-bottom: 20px;
-}
-.footer {
-  padding: 30px;
+footer {
+  clear: both;
   background-color: #444444;
+  padding: 100px;
   margin: 0;
   ul {
     list-style-type: none;
