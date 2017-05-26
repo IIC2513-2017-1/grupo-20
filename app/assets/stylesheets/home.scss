@@ -7,7 +7,7 @@ body {
 }
 .header {
   padding-bottom: 15px;
-  background-color: #B00100;
+  background-color: #B01000;
   margin: 0;
   clear: both;
 }
@@ -90,6 +90,8 @@ h2 {
   float: left;
   width: 300px;
   margin: 10px  10px 10px 10px;
+  border-right: #B01000 solid 2px;
+  border-bottom: #B01000 solid 2px;
   ul {
     list-style-type: none;
     text-align: left;

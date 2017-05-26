@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     @search = Rifa.search(params[:name_search], params[:premio_search],
                           params[:min_price_search],
                           params[:max_price_search],params[:date_search])
+    flash[:notice] = "Post successfully created"
+
 
   end
 

@@ -8,6 +8,8 @@ class Rifa < ApplicationRecord
   validates :numbers, numericality: {only_integers: true, greater_than_or_equal_to: 10}
   validates :price, numericality: {only_integers: true}
 
+  validates :min_price_search, numericality: true
+
   def self.search(name, premio, min_price, max_price, date)
     rifas = Rifa.all
     if name.present?
@@ -20,12 +22,11 @@ class Rifa < ApplicationRecord
         rifas_prize << p.rifa
       end
       rifas = rifas & rifas_prize
-
     end
-    if min_price.present?
+    if min_price.present? and min_price.is_a? Integer
       rifas = rifas.where('price > ?', min_price )
     end
-    if max_price.present?
+    if max_price.present? and max_price.is_a? Integer
       rifas = rifas.where('price < ?', max_price )
     end
     if date.present?
