@@ -18,9 +18,9 @@
             <%= label_tag 'Precio:' %>
           <div class="field-line">
             <%= label_tag 'Min:' %>
-            <%= number_field_tag :min_price_search, params[:min_price_search], min: 0 %>
+            <%= text_field_tag :min_price_search, params[:min_price_search] %>
             <%= label_tag 'Max:' %>
-            <%= number_field_tag :max_price_search, params[:max_price_search], min: 100 %>
+            <%= text_field_tag :max_price_search, params[:max_price_search] %>
           </div>
           </li>
 
@@ -38,18 +38,7 @@
 
   <div class="content-section">
     <h2>Explora Rifas </h2>
-    <div class="sort">
-      <ul>
-        <li>Ordernar por:</li>
-        <li><%=button_to 'Precio min', root_path, method: 'get', params: {order: 'p_min'}, class: "sort-button"%></li>
-        <li><%=button_to 'Precio max', root_path, method: 'get', params: {order: 'p_max'}, class: "sort-button"%></li>
-        <li><%=button_to 'A-Z', root_path, method: 'get', params: {order: 'a_z'}, class: "sort-button"%></li>
-        <li><%=button_to 'Z-A', root_path, method: 'get', params: {order: 'z_a'}, class: "sort-button"%></li>
-        <li><%=button_to 'Fecha inicio', root_path, method: 'get', params: {order: 'init_date'}, class: "sort-button"%></li>
-        <li><%=button_to 'Fecha termino', root_path, method: 'get', params: {order: 'end_date'}, class: "sort-button"%></li>
-      </ul>
-    </div>
-    <div class="search-notice"></div>
+
     <% @search.each do |rifa| %>
         <div class="raffle">
           <h3> Rifa <%= rifa.title %><br></h3>
