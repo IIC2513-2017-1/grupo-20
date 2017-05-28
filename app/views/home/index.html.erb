@@ -4,6 +4,10 @@
       <h2>Busca Rifas </h2>
       <%= form_tag  root_path, :method => 'get' do%>
 
+          <% if flash[:notice] %>
+              <div class="notice"><%= flash[:notice] %></div>
+          <% end %>
+
           <li class="field">
             <%= label_tag 'Rifa:' %>
             <%= text_field_tag :name_search, params[:name_search] %>
