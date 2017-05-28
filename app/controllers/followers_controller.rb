@@ -5,6 +5,7 @@ class FollowersController < ApplicationController
     follower_id: current_user.id
   )
     if follower_relationship.save
+      NewFollowerMailer.new_follower_email(user, current_user).deliver_later
       redirect_to user_path(user.id)
     else
       redirect_to user_path(user.id), alert: "Can't follow that user"
