@@ -2,6 +2,7 @@
   <div class="finder">
     <ul>
       <h2>Busca Rifas </h2>
+      <div class="search-notice"></div>
       <%= form_tag  root_path, :method => 'get' do%>
 
           <% if flash[:notice] %>
@@ -53,7 +54,6 @@
         <li><%=button_to 'Fecha termino', root_path, method: 'get', params: {order: 'end_date'}, class: "sort-button"%></li>
       </ul>
     </div>
-    <div class="search-notice"></div>
     <% @search.each do |rifa| %>
         <div class="raffle">
           <h3> Rifa <%= rifa.title %><br></h3>

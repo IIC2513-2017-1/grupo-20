@@ -50,6 +50,8 @@ body {
 h2 {
   display: block;
   padding-left: 15px;
+  margin-bottom: 0;
+  padding-bottom: 5px;
   text-align: left;
 }
 
@@ -84,6 +86,44 @@ h2 {
       margin-bottom: 20px;
     }
   }
+}
+.sort {
+  padding-top: 0;
+  margin-bottom: 5px;
+  margin-top: 0;
+  height: 20px;
+  ul {
+    padding: 0 5px 0 5px;
+    margin: 0 0 15px 0;
+    list-style-type: none;
+    :first-child {
+      color: black;
+      padding-left: 0;
+      margin-left: 10px;
+    }
+    li{
+      display: inline;
+      float: left;
+      .sort-button{
+        color: black;
+        width: 100px;
+        font-size: 12px;
+        background-color: orange;
+        border: none;
+        padding: 3px 0 3px 0;
+        text-align: center;
+        margin: auto;
+      }
+
+    }
+  }
+}
+
+.search-notice {
+  padding-top: 0;
+  margin-bottom: 10px;
+  margin-top: 0;
+  height: 20px;
 }
 
 .finder {
