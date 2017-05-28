@@ -4,6 +4,8 @@ class RifasController < ApplicationController
   end
   def show
     @rifas = Rifa.find(params[:id])
+    @comments = Comment.where({rifa_id: params[:id]})
+    @comment = Comment.new
   end
   def new
     @rifa = Rifa.new

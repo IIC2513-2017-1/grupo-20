@@ -17,12 +17,38 @@
                 <%end%>
               </li>
             </div>
-            <li>Dueño: <%= @rifas.owner %></li>
+            <li>Dueño: <%= link_to @rifas.owner, user_path(@rifas.user_id)%></li>
             <li>Fecha de inicio: <%= @rifas.created_at %></li>
             <li>Fecha de de termino: <%= @rifas.end_date %></li>
             <li>Precio: <%= @rifas.price %></li>
             <li>Numeros restantes: <%= @rifas.numbers%></li>
           </ul>
+          <div class="raffle-view">
+            <h2> Comentarios: <br></h2>
+            <ul>
+              <%@comments.each do |comment|%>
+              <div class="premios">
+                <li>
+                  <%= comment.content %>
+                </li>
+              </div>
+              <li>Escrito por: <%= comment.user_name %></li>
+              <li>Fecha: <%= comment.created_at %></li>
+              <%end%>
+            </ul>
+            <div class="container">
+              <%= form_for @comment, url:{ controller: :comments, action: :create }  do |f| %>
+                <div class="field">
+                  <%= f.label :Comentar %><br>
+                  <%= f.text_area :content %><br>
+                </div>
+                <div class="actions">
+                  <%= f.submit "Publicar" %>
+                </div>
+                <%end%>
+            </div>
+          </div>
         </div>
   </div>
+
 </div>

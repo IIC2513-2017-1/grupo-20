@@ -41,7 +41,6 @@
 
 </div>
 <%end%>
-
 <%unless @user.admin%>
 <div class="own-raffles">
       <%if current_user == @user%>
@@ -57,6 +56,14 @@
           <%end%>
           <%unless Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  @user.id).blank?%>
           <h3>Ya sigues a <%=@user.name%>!</h3>
+          <h3>Calificación: <%=@valoracion%></h3>
+          <h3>
+          <%= form_for @rating, url:{ controller: :ratings, action: :create } do |f|%>
+          <%= f.label :calificar%>
+          <%= f.select :valoracion, ((1..5).map {|i| [i,i] })%>
+          <%= f.submit "calificar"%>
+          <%end%>
+          </h3>
           <%end%>
           <%end%>
         </h2>
@@ -86,7 +93,8 @@
           <li class="button"><%= button_to 'Editar Rifa', edit_user_rifa_path(@user.id), method: "get"%></li>
           <%end%>
           <%unless @user == current_user%>
-          <li class="button"><%= button_to 'Comprar Rifa', new_rifa_numero_path(d.id), method: "get"%></li>
+          <%= button_to 'Comprar Rifa', new_rifa_numero_path(d.id), method: "get"%>
+          <%= button_to 'Ver Rifa', rifa_path(d.id), method: "get"%>
           <%end%>
           <%end%>
         </ul>
@@ -197,4 +205,5 @@
       <%end%>
       <%end%>
 <%end%>
+</div>
 </div>

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new'
   get '/users/:user_id/followers', to: 'followers#create', as: :user_followers
   post '/numeros/:id', to: 'numeros#aprove', as: :aprove_compra
+  post '/users/:id', to: 'ratings#create', as: :create_rating
+  get '/rifas/:id/comment', to: 'comments#new', as: :new_comment
+  post '/rifas/:id/comment', to: 'comments#create', as: :create_comment
   root 'home#index'
   resources :users do
     resources :rifas

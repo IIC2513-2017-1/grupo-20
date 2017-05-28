@@ -5,9 +5,9 @@ class FollowersController < ApplicationController
     follower_id: current_user.id
   )
     if follower_relationship.save
-      redirect_to users_path
+      redirect_to user_path(user.id)
     else
-      redirect_to users_path, alert: "Can't follow that user"
+      redirect_to user_path(user.id), alert: "Can't follow that user"
     end
   end
 

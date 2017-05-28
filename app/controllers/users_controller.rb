@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @numeros = Numero.all
+    @rating = Rating.new
+    @valoracion = Rating.where({user_id: params[:id]}).average(:valoracion)
   end
 
   def edit
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
 private
   def set_user
     @user = User.find(params[:id])

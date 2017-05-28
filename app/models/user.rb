@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :rifas
   has_many :numeros
+  has_many :ratings
 
   has_many :follower_relationships, foreign_key: :following_id,
                                     class_name: 'Follow', dependent: :destroy

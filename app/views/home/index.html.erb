@@ -87,7 +87,7 @@
           <div class="precio">
             <ul>
               <li><div class="precio"><b>Precio: </b><%= " $" + rifa.price.to_s %></div></li>
-              <li><%=button_to 'Compar $$$','#', method: "get",  class: "raffle-button"%></li>
+              <li><%=button_to 'Comprar $$$', new_rifa_numero_path(rifa), method: "get",  class: "raffle-button"%></li>
               <li><%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "raffle-button"%></li>
           </ul>
           </div>

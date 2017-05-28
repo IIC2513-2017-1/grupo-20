@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524203638) do
+ActiveRecord::Schema.define(version: 20170528210930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "user_name"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "rifa_id"
+    t.index ["rifa_id"], name: "index_comments_on_rifa_id", using: :btree
+  end
 
   create_table "follows", force: :cascade do |t|
     t.integer  "following_id", null: false
@@ -43,6 +53,14 @@ ActiveRecord::Schema.define(version: 20170524203638) do
     t.integer  "importance"
     t.string   "name"
     t.index ["rifa_id"], name: "index_prizes_on_rifa_id", using: :btree
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "valoracion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
   end
 
   create_table "rifas", force: :cascade do |t|
