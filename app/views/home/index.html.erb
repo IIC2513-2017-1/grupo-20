@@ -56,27 +56,41 @@
     </div>
     <% @search.each do |rifa| %>
         <div class="raffle">
-          <h3> Rifa <%= rifa.title %><br></h3>
-          <ul>
-            <li><b>Premios: </b>
-            <% n_prizes = rifa.prizes.count() %>
-            <% count = 0 %>
-            <% rifa.prizes.each do |prize| %>
-              <% count += 1 %>
-              <% if count == n_prizes%>
-                  <%= prize.name + '.' %>
-              <% else %>
-                  <%= prize.name + ', ' %>
+          <div class="title-owner">
+            <div class="title">
+              <h3> Rifa <%= rifa.title %></h3>
+            </div>
+            <div class="owner">
+              <%= link_to(user_path(rifa.user_id), method: 'get', class:"link-user") do %>
+                <h3> <%= rifa.owner %></h3>
               <%end%>
-            <%end%>
-            </li>
-            <li><b>Dueño: </b><%= rifa.owner %></li>
-            <li><b>Fecha de inicio: </b><%= rifa.created_at.to_formatted_s(:long) %></li>
-            <li><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
-            <li><b>Precio: </b><%= rifa.price %></li>
-            <li class="button"><%=button_to 'Ver rifa', rifa_path(rifa), method: "get"%></li>
-            <li class="button"><%=button_to 'Conocer usuario', user_path(rifa.user_id), method: "get"%></li>
+            </div>
+          </div>
+          <div class="datos">
+            <ul class="fechas-premios">
+              <li><b>Premios: </b>
+              <% n_prizes = rifa.prizes.count() %>
+              <% count = 0 %>
+              <% rifa.prizes.each do |prize| %>
+                <% count += 1 %>
+                <% if count == n_prizes%>
+                    <%= prize.name + '.' %>
+                <% else %>
+                    <%= prize.name + ', ' %>
+                <%end%>
+              <%end%>
+              </li>
+              <li><b>Fecha de inicio: </b><%= rifa.created_at.to_formatted_s(:long) %></li>
+              <li><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
+            </ul>
+          </div>
+          <div class="precio">
+            <ul>
+              <li><div class="precio"><b>Precio: </b><%= " $" + rifa.price.to_s %></div></li>
+              <li><%=button_to 'Compar $$$','#', method: "get",  class: "raffle-button"%></li>
+              <li><%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "raffle-button"%></li>
           </ul>
+          </div>
         </div>
     <% end %>
   </div>
