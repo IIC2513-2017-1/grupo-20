@@ -20,17 +20,35 @@ class Rifa < ApplicationRecord
         rifas_prize << p.rifa
       end
       rifas = rifas & rifas_prize
-
     end
-    if min_price.present?
-      rifas = rifas.where('price > ?', min_price )
+    if min_price.present? and min_price.to_i.is_a? Integer
+      rifas = rifas.where('price > ?', min_price.to_i )
     end
-    if max_price.present?
-      rifas = rifas.where('price < ?', max_price )
+    if max_price.present? and max_price.to_i.is_a? Integer
+      rifas = rifas.where('price < ?', max_price.to_i )
     end
     if date.present?
       rifas = rifas.where('end_date < ?', "%#{DateTime.now + date.to_i.week}%" )
     end
     rifas
   end
+
+  def self.sort_option(order)
+
+      if order == 'p_min'
+        self.order(price: :asc)
+      elsif order == 'p_max'
+        self.order(price: :desc)
+      elsif order == 'a_z'
+        self.order(title: :asc)
+      elsif order == 'z_a'
+        self.order(title: :desc)
+      elsif order == 'init_date'
+        self.order(created_at: :asc)
+      elsif order == 'end_date'
+        self.order(end_date: :desc)
+      end
+
+  end
+
 end
