@@ -26,23 +26,21 @@ u5 = User.create(name: 'felipe',
               mail: 'felipe@gmail.cl',
               password: '1234',
               admin: false)
-u6 = User.create(name: 'jon',
-              mail: 'jon@snow.cl',
+u6 = User.create(name: 'jons',
+              mail: 'jons@snow.cl',
               password: '1234',
               admin: false)
 
 # user jon no tiene profile pic
 File.open(Rails.root  + "app/assets/images/perfil1.png") do |f|
-  u1.avatar = f
-end
-u1.save!
+   u1.avatar = f
    u2.avatar = f
    u3.avatar = f
    u4.avatar = f
    u5.avatar = f
    u6.avatar = f
  end
-
+ u1.save!
  u2.save!
  u3.save!
  u4.save!
