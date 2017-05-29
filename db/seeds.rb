@@ -36,16 +36,18 @@ File.open(Rails.root  + "app/assets/images/perfil1.png") do |f|
   u1.avatar = f
 end
 u1.save!
-#   u2.avatar = f
-#   u3.avatar = f
-#   u4.avatar = f
-#   u5.avatar = f
-# end
-#
-# u2.save!
-# u3.save!
-# u4.save!
-# u5.save!
+   u2.avatar = f
+   u3.avatar = f
+   u4.avatar = f
+   u5.avatar = f
+   u6.avatar = f
+ end
+
+ u2.save!
+ u3.save!
+ u4.save!
+ u5.save!
+ u6.save!
 
 
 r1 = Rifa.create(owner: u1.name,
@@ -72,12 +74,12 @@ r4 = Rifa.create(owner: u5.name,
                  user_id: u5.id,
                  title:"PS4",
                  end_date: DateTime.new(2017,8,3,4,5,6))
-# r5 = Rifa.create(owner: u6.name,
-#                  price: 10000,
-#                  numbers: 2000,
-#                  user_id: u6.id,
-#                  title:"Auto",
-#                  end_date: DateTime.new(2017,8,3,4,5,6))
+r5 = Rifa.create(owner: u6.name,
+                 price: 10000,
+                 numbers: 2000,
+                 user_id: u6.id,
+                 title:"Auto",
+                 end_date: DateTime.new(2017,8,3,4,5,6))
 r6 = Rifa.create(owner: u5.name,
                  price: 2000,
                  numbers: 500,
@@ -115,7 +117,7 @@ p3 = Prize.create(rifa_id: r1.id, importance: 3, name: 'iPhone 4')
 p4 = Prize.create(rifa_id: r2.id, importance: 1, name: 'iPhone 7')
 p5 = Prize.create(rifa_id: r3.id, importance: 1, name: 'Televisor Samsung')
 p6 = Prize.create(rifa_id: r4.id, importance: 1, name: 'Play Station 4')
-# p7 = Prize.create(rifa_id: r5.id, importance: 1, name: 'Hyundai accent 1.6')
+p7 = Prize.create(rifa_id: r5.id, importance: 1, name: 'Hyundai accent 1.6')
 p8 = Prize.create(rifa_id: r6.id, importance: 1, name: 'Bici Bianchi')
 p9 = Prize.create(rifa_id: r6.id, importance: 2, name: 'Bici Treck')
 p10 = Prize.create(rifa_id: r7.id, importance: 1, name: 'Televisor Sony')
