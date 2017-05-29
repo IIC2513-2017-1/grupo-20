@@ -4,17 +4,18 @@
 
 <p>
   Has salido ganador del sorteo en la rifa <%=@rifa.title%>!!!
-  Tu numero fue <%@winner_number%>
+  Tu numero fue <%=@number.number%>
 </p>
 <p>
   Te has ganado los siguiente premios:
-  <%=@rifa.prizes.each do |p|%>
+  <%@rifa.prizes.each do |f|%>
   <ul>
-    <li>p.name</li>
+    <li><%=f.name%></li>
   </ul>
+  <%end%>
 </p>
 
 <p>
   Saludos,<br/>
-  Equipo dr Rifas Maister
+  Equipo de Rifas Maister
 </p>

@@ -34,7 +34,7 @@ class RifasController < ApplicationController
     @rifas = Rifa.find(params[:id])
     @winner_number = Numero.where({rifa_id: params[:id]}).sample
     @winner = User.find(@winner_number.user_id)
-    NotifyWinnerMailer.notify_winner_email(@winner, @rifas, @winner_number)
+    NotifyWinnerMailer.notify_winner_email(@winner, @rifas, @winner_number).deliver_later
   end
 
   private
