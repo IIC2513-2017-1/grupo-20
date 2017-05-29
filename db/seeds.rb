@@ -72,12 +72,12 @@ r4 = Rifa.create(owner: u5.name,
                  user_id: u5.id,
                  title:"PS4",
                  end_date: DateTime.new(2017,8,3,4,5,6))
-r5 = Rifa.create(owner: u6.name,
-                 price: 10000,
-                 numbers: 2000,
-                 user_id: u6.id,
-                 title:"Auto",
-                 end_date: DateTime.new(2017,8,3,4,5,6))
+# r5 = Rifa.create(owner: u6.name,
+#                  price: 10000,
+#                  numbers: 2000,
+#                  user_id: u6.id,
+#                  title:"Auto",
+#                  end_date: DateTime.new(2017,8,3,4,5,6))
 r6 = Rifa.create(owner: u5.name,
                  price: 2000,
                  numbers: 500,
