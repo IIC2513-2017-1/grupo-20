@@ -91,6 +91,7 @@
           <%if current_user%>
           <%if @user == current_user%>
           <li class="button"><%= button_to 'Editar Rifa', edit_user_rifa_path(@user.id), method: "get"%></li>
+          <li class="button"><%= button_to 'Generar Sorteo', rifas_draw_path(d.id), method: "get"%></li>
           <%end%>
           <%unless @user == current_user%>
           <%= button_to 'Comprar Rifa', new_rifa_numero_path(d.id), method: "get"%>

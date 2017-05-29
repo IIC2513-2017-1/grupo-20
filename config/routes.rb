@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/logout',  to: 'sessions#destroy'
 
   get '/register', to: 'users#new'
+  get '/rifas/:id/draw', to: 'rifas#draw', as: :rifas_draw
   get '/users/:user_id/followers', to: 'followers#create', as: :user_followers
   post '/numeros/:id', to: 'numeros#aprove', as: :aprove_compra
   post '/users/:id', to: 'ratings#create', as: :create_rating

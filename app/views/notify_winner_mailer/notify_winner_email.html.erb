@@ -1,0 +1,20 @@
+<p>
+  Estimado <%= @winner.name %>,
+</p>
+
+<p>
+  Has salido ganador del sorteo en la rifa <%=@rifa.title%>!!!
+  Tu numero fue <%@winner_number%>
+</p>
+<p>
+  Te has ganado los siguiente premios:
+  <%=@rifa.prizes.each do |p|%>
+  <ul>
+    <li>p.name</li>
+  </ul>
+</p>
+
+<p>
+  Saludos,<br/>
+  Equipo dr Rifas Maister
+</p>

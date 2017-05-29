@@ -29,6 +29,14 @@ class RifasController < ApplicationController
       render 'edit'
     end
   end
+
+  def draw
+    @rifas = Rifa.find(params[:id])
+    @winner_number = Numero.where({rifa_id: params[:id]}).sample
+    @winner = User.find(@winner_number.user_id)
+    NotifyWinnerMailer.notify_winner_email(@winner, @rifas, @winner_number)
+  end
+
   private
     def rifa_params
       params.require(:rifa).permit(:title, :price, :numbers, :end_date).merge({user_id: current_user.id, owner: current_user.name})

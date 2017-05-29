@@ -25,6 +25,7 @@ class NumerosController < ApplicationController
     @numero = Numero.find(params[:id])
     @numero.aproved = true
     if @numero.save
+      TransactionApprovedMailer.transaction_approved_email(@numero).deliver_later
       redirect_to user_path(current_user)
     else
       redirect_to user_path(current_user), alert: 'No se pudo aprobar'
