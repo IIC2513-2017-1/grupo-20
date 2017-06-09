@@ -11,22 +11,14 @@
   <body>
   <div class="header">
     <% unless current_user%>
-        <ul class="nav">
-          <li class="home-button"><%= link_to 'Home', root_path %></li>
-          <div class="session-button">
-            <li><%= link_to 'Log in', login_path %></li>
-            <li><%= link_to 'Sign up', new_user_path %></li>
-          </div>
-        </ul>
+          <go class="button"><%= button_to 'Home', root_path, method: "get", class: "home-button" %></go>
+          <go class="button"><%= button_to 'Log in', login_path, method: "get", class: "login-button" %></go>
+          <go class="button"><%= button_to 'Sign up', new_user_path, method: "get", class: "signup-button" %></go>
     <% else %>
-        <ul class="nav">
-          <li class="home-button"><%= link_to 'Home', root_path %></li>
-          <div class="session-button">
-            <li><%= link_to 'log out', logout_path %></li>
-            <li><%= link_to "#{current_user.name}", user_path(current_user)%> <%=image_tag(current_user.avatar.nav_bar.url)%></li>
-          </div>
-        </ul>
-    <% end %>
+          <go class="button"><%= button_to 'Home', root_path, method: "get", class: "home-button"%></go>
+          <go class="button"><%= button_to 'log out', logout_path, method: "get", class: "login-button" %></go>
+          <go class="button"><%= button_to "Perfil", user_path(current_user), method: "get", class: "signup-button"%></go>
+    <%end%>
     <h1>Rifas Maister</h1>
   </div>
     <%= yield %>

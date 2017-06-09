@@ -1,25 +1,27 @@
 <div class="user-view">
 <%if current_user == @user%>
+<div class="tab">
+  <button class="see-info defaultOpen">Informacion personal</button>
+  <button class="see-following">Siguiendo</button>
+  <button class="see-followers">Te Siguen</button>
+</div>
 <div class="profile">
   <h2>Bienvenido <%= @user.name %></h2>
   <%= image_tag(@user.avatar.thumb.url) %>
-  <ul>
-    <li> email: <%= @user.mail %></li>
+  <div class="info">
+    <p> Email: <%= @user.mail %></p>
+    <opt class="button"><%= button_to 'Editar Perfil', edit_user_path(@user), method: "get", class: "buttonEdit"%></opt>
+</div>
     <%unless @user.admin%>
     <div class="following">
-      <li>Siguiendo:
-        <% n_follows = @user.following.count() %>
-        <% count = 0 %>
+      <p>Siguiendo:
         <% @user.following.each do |f| %>
-          <% count += 1 %>
-          <% if count == n_follows%>
-              <%= f.name + '.' %>
-          <% else %>
-              <%= f.name + ', ' %>
-          <%end%>
+          <p class="showing"><%=f.name%></p>
         <%end%>
-      </li>
-      <li>Seguidores:
+      </p>
+    </div>
+      <div class="followers">
+      <p>Seguidores:
         <% n_followers = @user.followers.count() %>
         <% count = 0 %>
         <% @user.followers.each do |f| %>
@@ -30,21 +32,24 @@
               <%= f.name + ', ' %>
           <%end%>
         <%end%>
-      </li>
+      </p>
     </div>
     <%end%>
 
-  </ul>
-  <ul class="button">
-  <%= button_to 'Editar Perfil', edit_user_path(@user), method: "get"%>
-  </ul>
-
+</div>
+<%end%>
+<%if current_user == @user%>
+<div class="tab">
+  <button class="see-own defaultOpen">Rifas Creadas</button>
+  <button class="see-bought">Rifas Compradas</button>
+  <button class="see-processing">Rifas siendo procesadas</button>
 </div>
 <%end%>
 <%unless @user.admin%>
 <div class="own-raffles">
       <%if current_user == @user%>
-        <h2>Tus rifas creadas</h2>
+        <h2>Tus Rifas Creadas</h2>
+        <go class="button"><%= button_to 'Crear Rifa', new_user_rifa_path(current_user.id), method: "get", class: "buttonNew"%></go>
       <%end%>
       <%unless current_user == @user%>
         <h2>Rifas creadas por <%=@user.name%>
@@ -70,6 +75,7 @@
       <%end%>
       <% @user.rifas.each do |d| %>
       <div class="raffle" id="own">
+        <edit class="button"><%= button_to 'Editar Rifa', edit_user_rifa_path(@user.id), method: "get", class: "buttonTo"%></edit>
         <h3> Rifa <%= d.title %><br></h3>
         <ul>
           <li>Premios:
@@ -89,25 +95,21 @@
           <li>Precio: <%= d.price %></li>
           <li>Numeros restantes: <%= d.numbers%></li>
           <%if current_user%>
-          <%if @user == current_user%>
-          <li class="button"><%= button_to 'Editar Rifa', edit_user_rifa_path(@user.id), method: "get"%></li>
-          <li class="button"><%= button_to 'Generar Sorteo', rifas_draw_path(d.id), method: "get"%></li>
-          <%end%>
           <%unless @user == current_user%>
           <%= button_to 'Comprar Rifa', new_rifa_numero_path(d.id), method: "get"%>
           <%= button_to 'Ver Rifa', rifa_path(d.id), method: "get"%>
           <%end%>
           <%end%>
         </ul>
+        <%if @user == current_user%>
+        <go class="button"><%= button_to 'Generar Sorteo', rifas_draw_path(d.id), method: "get", class: "buttonRaff"%></go>
+        <%end%>
       </div>
       <% end %>
-  <% if current_user == @user%>
-      <ul class="button"><%= button_to 'Crear Rifa', new_user_rifa_path(current_user.id), method: "get"%></ul>
-  <% end%>
 </div>
-<div class="own-raffles">
+<div class="bought-raffles">
       <%if current_user == @user%>
-        <h2>Tus rifa compradas</h2>
+        <h2>Tus Rifas Compradas</h2>
       <% @user.numeros.each do |d| %>
       <%if d.aproved%>
       <div class="raffle" id="own">
@@ -138,9 +140,9 @@
       <%end%>
       <%end%>
 </div>
-<div class="own-raffles">
+<div class="processing-raffles">
       <%if current_user == @user%>
-        <h2>Rifas siendo procesadas por Administrador</h2>
+        <h2>Compras siendo procesadas por Administrador</h2>
       <% @user.numeros.each do |d| %>
       <%unless d.aproved%>
       <div class="raffle" id="own">

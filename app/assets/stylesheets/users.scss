@@ -6,16 +6,18 @@
 // User-view
 .user-view {
   padding-left: 20px;
+  padding-right: 20px;
   div {
-    margin: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
     border: 2px #2E2F30 solid;
-    background: #FFFFFF;
+    background: white;
     color: #2E2F30;
   }
   h2 {
-    margin-left: 20px;
-    margin-right: 20px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
   }
   h3 {
     margin-left: 20px;
@@ -25,11 +27,12 @@
 }
 // Profile
 .profile {
-  height: 250px;
+  height: 225px;
   img {
     border: 1px #2E2F30 solid;
     float: left;
     margin-left: 30px;
+    margin-top: 10px;
   }
   ul {
     list-style-type: none;
@@ -40,12 +43,88 @@
 // Own raffles
 .own-raffles {
   #own {
-
+  }
+}
+.bought-raffles {
+  #own {
+    margin: 30px;
+  }
+}
+.processing-raffles {
+  #own {
+    margin: 30px;
   }
 }
 
-.button {
-  //size: 100px;
+
+opt.button {
+  float: right;
+  position: relative;
+  right: 0;
+  bottom: -100px;
+}
+
+.buttonTo {
+  float: right;
+  position: absolute;
+  right: 92px;
+  background-color: lightgrey;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+}
+
+.buttonTo:hover {
+  background-color: lightblue;
+}
+
+.buttonRaff {
+  float: right;
+  background-color: lightgreen;
+  border: none;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 51px;
+  padding: 14px 20px;
+}
+
+.buttonRaff:hover {
+  background-color: green;
+  color: black;
+}
+.buttonEdit {
+  float: right;
+  background-color: lightgrey;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 45px;
+  padding: 14px 20px;
+}
+
+.buttonEdit:hover {
+  background-color: green;
+  color: black;
+}
+
+.buttonNew {
+  background-color: lightgrey;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  padding: 14px 25px;
+  margin-left: 30px;
+}
+
+.buttonNew:hover {
+  background-color: lightblue;
 }
 // Bought raffles
 
@@ -63,4 +142,61 @@
 }
 .submit-button {
   float: right;
+}
+
+div.info, div.followers, div.following{
+  margin-top: 10px;
+  padding-left: 150px;
+  border: 0;
+  background: 0;
+  color: #2E2F30;
+}
+
+div.following p.showing{
+  padding-left: 20px;
+}
+
+div.tab-user {
+  margin: 0;
+  margin-left: 30px;
+  border: 0;
+}
+
+/* Style the tab */
+div.tab {
+   overflow: hidden;
+   border: 0;
+   background-color: 0;
+   background: 0;
+   margin-bottom: 0;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+   background-color: lightgrey;
+   float: left;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   padding: 14px 16px;
+   transition: 0.3s;
+   margin-top: 20px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+   background-color: lightblue;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+   background-color: lightgreen;
+}
+
+/* Style the tab content */
+.tabcontent {
+   display: none;
+   padding: 6px 12px;
+   border: 1px solid #ccc;
+   border-top: none;
 }

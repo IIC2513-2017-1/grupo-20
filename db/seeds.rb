@@ -29,7 +29,7 @@ u5 = User.create(name: 'felipe',
 u6 = User.create(name: 'jons',
               mail: 'jons@snow.cl',
               password: '1234',
-              admin: false)
+              admin: false)shel
 
 # user jon no tiene profile pic
 File.open(Rails.root  + "app/assets/images/perfil1.png") do |f|

@@ -6,9 +6,11 @@ body {
   font-family: Helvetica, Arial;
 }
 .header {
-  padding-bottom: 15px;
-  background-color: #B01000;
-  margin: 0;
+  padding-bottom: 40px;
+  padding-top: 15px;
+  background-image: url(asset_path('background2.jpg'));
+  background-size: cover;
+  margin: 0px;
   clear: both;
 }
 .header h1{
@@ -17,22 +19,7 @@ body {
   color: #F7F7F7;
   margin-top: 30px;
 }
-.nav{
-  text-align:center;
-  padding: 15px;
-  margin: auto;
-}
-.nav li{
-  display: inline;
-  padding: 10px;
-  margin-right: 15px;
-  margin-bottom: 0;
-  border: 2px #2E2F30 solid;
-  color: #888888;
-  background: white;
-  text-align: center;
-  max-height: 15px;
-}
+
 .session-button li {
   float: right;
   img {
@@ -40,11 +27,41 @@ body {
     margin-left: 5px;
   }
 }
-.home-button{
+
+.home-button {
   float: left;
+  background-color: lightgreen;
+  border: 1px solid green;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  position: absolute;
+  left: 10;
+  top: 8px;
 }
-.nav a {
-  text-decoration: none;
+
+.login-button {
+  float: right;
+  background-color: lightgreen;
+  border: 1px solid green;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.signup-button {
+  float: left;
+  background-color: lightgreen;
+  border: 1px solid green;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  position: absolute;
+  right: 8px;
+  top: 124px;
 }
 
 h2 {
@@ -86,7 +103,7 @@ h2 {
       }
       .link-user{
         text-decoration: none;
-        color: white;      
+        color: white;
         float: right;
         padding: 15px;
         font-style: normal;
@@ -98,7 +115,7 @@ h2 {
       }
     }
     .datos {
-      border: 2px solid #B01000; 
+      border: 2px solid #B01000;
       background-color: white;
       clear: both;
       height: 200px;
