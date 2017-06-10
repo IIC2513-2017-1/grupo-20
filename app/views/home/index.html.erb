@@ -55,43 +55,32 @@
       </ul>
     </div>
     <% @search.each do |rifa| %>
-        <div class="raffle">
-          <div class="title-owner">
-            <div class="title">
-              <h3> Rifa <%= rifa.title %></h3>
-            </div>
-            <div class="owner">
-              <%= link_to(user_path(rifa.user_id), method: 'get', class:"link-user") do %>
-                <h3> <%= rifa.owner %></h3>
-              <%end%>
-            </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa <%= rifa.title %></h3>
+            <go class="button"><%= button_to rifa.owner, user_path(rifa.user_id), method: "get", class: "raffle-owner"%></go>
           </div>
-          <div class="datos">
-            <ul class="fechas-premios">
-              <li><b>Premios: </b>
-              <% n_prizes = rifa.prizes.count() %>
-              <% count = 0 %>
-              <% rifa.prizes.each do |prize| %>
-                <% count += 1 %>
-                <% if count == n_prizes%>
-                    <%= prize.name + '.' %>
-                <% else %>
-                    <%= prize.name + ', ' %>
-                <%end%>
-              <%end%>
-              </li>
-              <li><b>Fecha de inicio: </b><%= rifa.created_at.to_formatted_s(:long) %></li>
-              <li><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
-            </ul>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b><%= rifa.created_at.to_formatted_s(:long) %></li>
+    	      <li class="fechas"><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
+    	      <op class="premios"><b>Premios: </b>
+    	      <% n_prizes = rifa.prizes.count() %>
+    	      <% count = 0 %>
+    	      <% rifa.prizes.each do |prize| %>
+    	        <% count += 1 %>
+    	        <% if count == n_prizes%>
+    	            <%= prize.name + '.' %>
+    	        <% else %>
+    	            <%= prize.name + ', ' %>
+    	        <%end%>
+    	      <%end%>
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"><%= " $" + rifa.price.to_s %></op>
+            <op><%=button_to 'Comprar $$$', new_rifa_numero_path(rifa), method: "get",  class: "buy"%></op>
+            <op><%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "see"%></op>
           </div>
-          <div class="precio">
-            <ul>
-              <li><div class="precio"><b>Precio: </b><%= " $" + rifa.price.to_s %></div></li>
-              <li><%=button_to 'Comprar $$$', new_rifa_numero_path(rifa), method: "get",  class: "raffle-button"%></li>
-              <li><%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "raffle-button"%></li>
-          </ul>
           </div>
-        </div>
     <% end %>
-  </div>
 </div>

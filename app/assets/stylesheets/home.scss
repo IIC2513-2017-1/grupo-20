@@ -208,6 +208,106 @@ h2 {
   }
 }
 
+.raffl {
+  background-image: url(asset_path('raffleback.jpg'));
+  background-size: cover;
+  border: 3px solid blue;
+  margin: 10px;
+}
+
+.raffle-title {
+  color: lightgrey;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 20px;
+  height: 20px;
+  padding-bottom: 1px;
+}
+
+.raffle-owner {
+  float: right;
+  position: relative;
+  bottom: 77px;
+  left: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: lightgreen;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 25px;
+  width: 120px;
+  height: 59px;
+}
+
+.raffle-owner:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.fechas-premios {
+  background: white;
+  padding-bottom: 100px;
+  padding-top: 15px;
+}
+
+.fechas-premios li.fechas{
+  list-style-type: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  right: 20px;
+}
+
+.fechas-premios op.premios{
+  padding-top: 33px;
+  border: 2px solid blue;
+  padding-bottom: 33px;
+  width: 645px;
+  float: left;
+  position: relative;
+  right: 42px;
+  top: 12px;
+  padding-right: 100px;
+  padding-left: 20px;
+}
+.precios {
+  height: 100px;
+}
+
+.precio {
+  font-size: 50px;
+  float: left;
+  position: relative;
+  top: 15px;
+  left: 40px;
+  color: orange;
+}
+
+.buy {
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  top: 63px;
+  background-color: lightblue;
+  padding: 10px 5px;
+  width: 120px;
+}
+
+.see {
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 13px;
+  left: 120px;
+  background-color: lightblue;
+  padding: 10px 5px;
+  width: 120px;
+}
+
 .search-notice {
   padding-top: 0;
   margin-bottom: 10px;
