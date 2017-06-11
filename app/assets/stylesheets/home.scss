@@ -72,6 +72,15 @@ h2 {
   text-align: left;
 }
 
+opt {
+  display: block;
+  padding-left: 15px;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  text-align: left;
+  font-size: 20px;
+}
+
 .content-section {
   float: right;
   padding-right: 100px;
@@ -79,140 +88,46 @@ h2 {
   height: 1000px;
   margin: 10px 10px 10px 10px;
   overflow: scroll;
-  .prizes li {
-    display: inline;
-  }
-  .raffle {
-    border: 2px solid #B01000;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #FFFFFF;
-    .title-owner{
-      background-color: #B01000;
-      color: white;
-      overflow: hidden;
-      height: 40px;
-      padding-bottom: 10px;
-      font-size: 24px;
-      font-style: italic;
-      font-weight: bolder;
-      .title{
-        float: left;
-        padding: 15px;
-        margin-left: 20px;
-      }
-      .link-user{
-        text-decoration: none;
-        color: white;
-        float: right;
-        padding: 15px;
-        font-style: normal;
-        margin-right: 20px;
-      }
-      h3 {
-        padding: 0;
-        margin: 0;
-      }
-    }
-    .datos {
-      border: 2px solid #B01000;
-      background-color: white;
-      clear: both;
-      height: 200px;
-      font-size: 20px;
-      ul {
-        float: left;
-        list-style-type: none;
-        margin-top: 40px;
-        padding-left: 15px;
-        li {
-          padding: 10px;
-        }
-      }
-    }
-    .precio {
-      background-color: #B01000;
-      color: white;
-      overflow: hidden;
-      ul {
-        list-style-type: none;
-        overflow: hidden;
-        margin: 0;
-        :first-child {
-          float: left;
-        }
-      }
-      li {
-        float: right;
-        display: inline;
-        height: 60px;
-        text-align: center;
-        vertical-align: middle;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        padding: 0;
-      }
-      .raffle-button {
-        width: 120px;
-        height: 60px;
-        margin: 0 10px 0 10px;
-        color: white;
-        font-size: 16px;
-        font-style: italic;
-        font-weight: bolder;
-        background-color: darkorange;
-        border: none;
-        padding: 3px 0 3px 0;
-        text-align: center;
-      }
-      .precio{
-        width: 250px;
-        margin-top: 10px;
-        font-size: 34px;
-        font-style: normal;
-        font-weight: bold;
-      }
-
-    }
-  }
 }
-.sort {
-  padding-top: 0;
-  margin-bottom: 5px;
-  margin-top: 0;
-  height: 20px;
-  ul {
-    padding: 0 5px 0 5px;
-    margin: 0 0 15px 0;
-    list-style-type: none;
-    :first-child {
-      color: black;
-      padding-left: 0;
-      margin-left: 10px;
-    }
-    li{
-      display: inline;
-      float: left;
-      .sort-button{
-        color: black;
-        width: 100px;
-        font-size: 12px;
-        background-color: orange;
-        border: none;
-        padding: 3px 0 3px 0;
-        text-align: center;
-        margin: auto;
-      }
 
-    }
-  }
+div.tab {
+   overflow: hidden;
+   border: 0;
+   background-color: 0;
+   background: 0;
+   margin-bottom: 0;
+}
+
+/* Style the buttons inside the tab */
+div.tab li {
+   list-style-type: none;
+   float: left;
+   position: relative;
+   right: 30px;
+}
+
+div.tab .sort-button {
+  background-color: lightblue;
+  list-style-type: none;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+}
+
+/* Change background color of buttons on hover */
+div.tab .sort-button:hover {
+   background-color: lightgreen;
 }
 
 .raffl {
   background-image: url(asset_path('raffleback.jpg'));
   background-size: cover;
   border: 3px solid blue;
-  margin: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .raffle-title {
