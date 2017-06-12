@@ -2,7 +2,7 @@
   <div class="finder">
     <ul>
       <h2>Busca Rifas </h2>
-      <div class="search-notice"></div>
+      <div class="search-notice">
       <%= form_tag  root_path, :method => 'get' do%>
 
           <% if flash[:notice] %>
@@ -32,18 +32,20 @@
           <li class="field">
             <%= label_tag 'Termina en menos de:' %>
           <div class="field-line" id="date">
-            <%= number_field_tag :date_search, params[:date_search] %> semanas
+            <%= number_field_tag :date_search, params[:date_search] %> (semanas)
           </div>
           </li>
 
-          <li class="submit-search"><%= submit_tag "Search" %></li>
+          <li><%= submit_tag "Search", class: "submit-button"%></li>
       <% end %>
+    </div>
     </ul>
       </div>
 
   <div class="content-section">
     <h2>Explora Rifas </h2>
     <div class="sort">
+
       <ul>
         <li>Ordernar por:</li>
         <li><%=button_to 'Precio min', root_path, method: 'get', params: {order: 'p_min'}, class: "sort-button"%></li>

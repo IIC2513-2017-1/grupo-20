@@ -22,121 +22,28 @@ h2 {
   height: 1000px;
   margin: 10px 10px 10px 10px;
   overflow: scroll;
-  .prizes li {
-    display: inline;
-  }
-  .raffle {
-    border: 2px solid #B01000;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #FFFFFF;
-    .title-owner{
-      background-color: #B01000;
-      color: white;
-      overflow: hidden;
-      height: 40px;
-      padding-bottom: 10px;
-      font-size: 24px;
-      font-style: italic;
-      font-weight: bolder;
-      .title{
-        float: left;
-        padding: 15px;
-        margin-left: 20px;
-      }
-      .link-user{
-        text-decoration: none;
-        color: white;
-        float: right;
-        padding: 15px;
-        font-style: normal;
-        margin-right: 20px;
-      }
-      h3 {
-        padding: 0;
-        margin: 0;
-      }
-    }
-    .datos {
-      border: 2px solid #B01000;
-      background-color: white;
-      clear: both;
-      height: 200px;
-      font-size: 20px;
-      ul {
-        float: left;
-        list-style-type: none;
-        margin-top: 40px;
-        padding-left: 15px;
-        li {
-          padding: 10px;
-        }
-      }
-    }
-    .precio {
-      background-color: #B01000;
-      color: white;
-      overflow: hidden;
-      ul {
-        list-style-type: none;
-        overflow: hidden;
-        margin: 0;
-        :first-child {
-          float: left;
-        }
-      }
-      li {
-        float: right;
-        display: inline;
-        height: 60px;
-        text-align: center;
-        vertical-align: middle;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        padding: 0;
-      }
-      .raffle-button {
-        width: 120px;
-        height: 60px;
-        margin: 0 10px 0 10px;
-        color: white;
-        font-size: 16px;
-        font-style: italic;
-        font-weight: bolder;
-        background-color: darkorange;
-        border: none;
-        padding: 3px 0 3px 0;
-        text-align: center;
-      }
-      .precio{
-        width: 250px;
-        margin-top: 10px;
-        font-size: 34px;
-        font-style: normal;
-        font-weight: bold;
-      }
-
-    }
-  }
 }
+
+
 .sort {
   padding-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   margin-top: 0;
-  height: 20px;
+  overflow: hidden;
   ul {
     padding: 0 5px 0 5px;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
     list-style-type: none;
     :first-child {
       color: black;
       padding-left: 0;
       margin-left: 10px;
     }
-    li{
+    li {
       display: inline;
       float: left;
-      .sort-button{
+      margin-bottom: 10px;
+      .sort-button {
         border-radius: 10px;
         color: black;
         width: 100px;
@@ -147,7 +54,6 @@ h2 {
         text-align: center;
         margin: auto;
       }
-
     }
   }
 }
@@ -157,7 +63,9 @@ h2 {
   background-image: url(asset_path('raffleback.jpg'));
   background-size: cover;
   border: 3px solid blue;
-  margin: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .raffle-title {
@@ -225,7 +133,7 @@ h2 {
   position: relative;
   top: 15px;
   left: 40px;
-  color: orange;
+  color: lightgrey;
 }
 
 .buy {
@@ -257,13 +165,14 @@ h2 {
   padding-top: 0;
   margin-bottom: 10px;
   margin-top: 0;
+  list-style-type: none;
   height: 20px;
 }
 
 .finder {
   float: left;
   width: 300px;
-  margin: 10px  10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   border-right: #B01000 solid 2px;
   border-bottom: #B01000 solid 2px;
   border-radius: 10px;
@@ -273,36 +182,44 @@ h2 {
     .form {
       float: right;
     }
-    li{
-      padding-left: 5px ;
-      padding-right: 5px ;
-      input{
+    li {
+      padding-left: 5px;
+      padding-right: 5px;
+      input {
         width: 80px;
       }
     }
   }
-  .field{
+  .field {
     display: block;
-    border: solid #F7F7F7;
+    border-radius: 10px;
+    border: 3px solid #F7F7F7;
     padding-bottom: 10px;
     margin-bottom: 10px;
-    input{
+    input {
       display: block;
       margin-left: 40px;
     }
   }
-  .field-line{
+  .field-line {
     display: block;
     padding-bottom: 0;
     padding-left: 20px;
-    input{
+    input {
       display: block;
       margin-left: 20px;
     }
   }
-  .submit-search {
+  .submit-button {
     display: block;
-    margin-top: 20px;
+    margin: 20px;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    background-color: skyblue;
+    text-align: center;
   }
 }
 #date input {
