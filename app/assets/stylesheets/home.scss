@@ -137,7 +137,6 @@ h2 {
 }
 
 .buy {
-  float: right;
   border: none;
   outline: none;
   cursor: pointer;
@@ -146,19 +145,37 @@ h2 {
   background-color: lightblue;
   padding: 10px 5px;
   width: 120px;
+  border-radius: 2.5px;
 }
 
 .see {
-  float: right;
   border: none;
   outline: none;
   cursor: pointer;
   position: relative;
-  bottom: 13px;
-  left: 120px;
+  bottom: 3.5em;
+  //left: 120px;
   background-color: lightblue;
   padding: 10px 5px;
   width: 120px;
+  border-radius: 2.5px;
+}
+
+.see_2 {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 1em;
+  //left: 120px;
+  background-color: lightblue;
+  padding: 10px 5px;
+  width: 120px;
+  border-radius: 2.5px;
+}
+
+.botones{
+  float: right;
 }
 
 .search-notice {

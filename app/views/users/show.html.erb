@@ -7,7 +7,12 @@
 </div>
 <div class="profile">
   <h2>Bienvenido <%= @user.name %></h2>
+  <%unless @user.avatar.thumb.url.nil? %>
   <%= image_tag(@user.avatar.thumb.url) %>
+  <%end%>
+  <%if @user.avatar.thumb.url.nil?%>
+  <%= image_tag(asset_path("raffleback.jpg")) %>
+  <%end%>
   <div class="info">
     <p> Email: <%= @user.mail %></p>
     <opt class="button"><%= button_to 'Editar Perfil', edit_user_path(@user), method: "get", class: "buttonEdit"%></opt>
@@ -75,7 +80,9 @@
       <%end%>
       <% @user.rifas.each do |d| %>
       <div class="raffle" id="own">
-        <edit class="button"><%= button_to 'Editar Rifa', edit_user_rifa_path(@user.id), method: "get", class: "buttonTo"%></edit>
+        <%if current_user == @user%>
+        <edit class="button"><%= button_to 'Editar Rifa', edit_user_rifa_path(@user, d), method: "get", class: "buttonTo"%></edit>
+        <%end%>
         <h3> Rifa <%= d.title %><br></h3>
         <ul>
           <li>Premios:

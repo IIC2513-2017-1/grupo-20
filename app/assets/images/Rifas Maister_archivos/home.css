@@ -1,0 +1,275 @@
+/* line 4, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+body {
+  background: #F7F7F7 url("/assets/background-f95239ec5048aa5b177d745f8905329a167e9278cba506bcbd116400da4ecebf.jpg") top left repeat;
+  font-family: Helvetica, Arial;
+}
+
+/* line 10, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+h2 {
+  display: block;
+  padding-left: 15px;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+/* line 18, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.content-section {
+  float: right;
+  padding-right: 100px;
+  width: 800px;
+  height: 1000px;
+  margin: 10px 10px 10px 10px;
+  overflow: scroll;
+}
+
+/* line 28, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.sort {
+  padding-top: 0;
+  margin-bottom: 8px;
+  margin-top: 0;
+  overflow: hidden;
+}
+/* line 33, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.sort ul {
+  padding: 0 5px 0 5px;
+  margin: 0 0 10px 0;
+  list-style-type: none;
+}
+/* line 37, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.sort ul :first-child {
+  color: black;
+  padding-left: 0;
+  margin-left: 10px;
+}
+/* line 42, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.sort ul li {
+  display: inline;
+  float: left;
+  margin-bottom: 10px;
+}
+/* line 46, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.sort ul li .sort-button {
+  border-radius: 10px;
+  color: black;
+  width: 100px;
+  font-size: 12px;
+  background-color: orange;
+  border: none;
+  padding: 3px 0 3px 0;
+  text-align: center;
+  margin: auto;
+}
+
+/* line 61, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.raffl {
+  border-radius: 10px;
+  background-image: url("/assets/raffleback-9cb31bc4dc3b3319a0668037e0ea890e6865b458f57526c01f52f6effe45836d.jpg");
+  background-size: cover;
+  border: 3px solid blue;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* line 71, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.raffle-title {
+  color: lightgrey;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 20px;
+  height: 20px;
+  padding-bottom: 1px;
+}
+
+/* line 80, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.raffle-owner {
+  float: right;
+  position: relative;
+  bottom: 77px;
+  left: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: lightgreen;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 25px;
+  width: 120px;
+  height: 59px;
+}
+
+/* line 96, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.raffle-owner:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* line 100, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.fechas-premios {
+  background: white;
+  padding-bottom: 100px;
+  padding-top: 15px;
+}
+
+/* line 106, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.fechas-premios li.fechas {
+  list-style-type: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  right: 20px;
+}
+
+/* line 114, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.fechas-premios op.premios {
+  padding-top: 33px;
+  border: 0;
+  padding-bottom: 33px;
+  width: 645px;
+  float: left;
+  position: relative;
+  right: 42px;
+  top: 12px;
+  padding-right: 100px;
+  padding-left: 20px;
+}
+
+/* line 126, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.precios {
+  height: 100px;
+}
+
+/* line 130, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.precio {
+  font-size: 50px;
+  float: left;
+  position: relative;
+  top: 15px;
+  left: 40px;
+  color: lightgrey;
+}
+
+/* line 139, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.buy {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  top: 63px;
+  background-color: lightblue;
+  padding: 10px 5px;
+  width: 120px;
+  border-radius: 2.5px;
+}
+
+/* line 151, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.see {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 3.5em;
+  background-color: lightblue;
+  padding: 10px 5px;
+  width: 120px;
+  border-radius: 2.5px;
+}
+
+/* line 164, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.botones {
+  float: right;
+}
+
+/* line 168, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.search-notice {
+  padding-top: 0;
+  margin-bottom: 10px;
+  margin-top: 0;
+  list-style-type: none;
+  height: 20px;
+}
+
+/* line 176, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder {
+  float: left;
+  width: 300px;
+  margin: 10px 10px 10px 10px;
+  border-right: #B01000 solid 2px;
+  border-bottom: #B01000 solid 2px;
+  border-radius: 10px;
+}
+/* line 183, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder ul {
+  list-style-type: none;
+  text-align: left;
+}
+/* line 186, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder ul .form {
+  float: right;
+}
+/* line 189, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder ul li {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/* line 192, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder ul li input {
+  width: 80px;
+}
+/* line 197, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder .field {
+  display: block;
+  border-radius: 10px;
+  border: 3px solid #F7F7F7;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+/* line 203, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder .field input {
+  display: block;
+  margin-left: 40px;
+}
+/* line 208, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder .field-line {
+  display: block;
+  padding-bottom: 0;
+  padding-left: 20px;
+}
+/* line 212, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder .field-line input {
+  display: block;
+  margin-left: 20px;
+}
+/* line 217, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+.finder .submit-button {
+  display: block;
+  margin: 20px;
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  background-color: skyblue;
+  text-align: center;
+}
+
+/* line 229, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+#date input {
+  display: inline;
+}
+
+/* line 233, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+footer {
+  clear: both;
+  background-color: #444444;
+  padding: 100px;
+  margin: 0;
+}
+/* line 238, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+footer ul {
+  list-style-type: none;
+}
+/* line 240, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/home.scss */
+footer ul li {
+  color: white;
+}

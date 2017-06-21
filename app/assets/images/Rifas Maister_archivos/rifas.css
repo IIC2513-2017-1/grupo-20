@@ -1,0 +1,26 @@
+/* line 5, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/rifas.scss */
+.raffle-view {
+  border: 2px solid #888888;
+  margin: 10px;
+  background-color: #FFFFFF;
+}
+/* line 9, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/rifas.scss */
+.raffle-view h2 {
+  margin: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+/* line 13, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/rifas.scss */
+.raffle-view ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+/* line 17, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/rifas.scss */
+.raffle-view ul li {
+  padding: 1px;
+}
+
+/* line 21, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/rifas.scss */
+.premios {
+  padding: 50px 10px 50px 10px;
+  border: 1px solid #dddddd;
+}

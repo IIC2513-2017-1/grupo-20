@@ -80,8 +80,15 @@
     	    </ul>
           <div class="precios">
             <op class="precio"><%= " $" + rifa.price.to_s %></op>
+            <div class="botones">
+            <%if current_user%>
             <op><%=button_to 'Comprar $$$', new_rifa_numero_path(rifa), method: "get",  class: "buy"%></op>
             <op><%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "see"%></op>
+            <%end%>
+            <%unless current_user%>
+            <op><%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "see_2"%></op>
+            <%end%>
+          </div>
           </div>
           </div>
     <% end %>

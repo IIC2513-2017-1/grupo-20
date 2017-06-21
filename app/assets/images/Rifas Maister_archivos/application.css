@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 19, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#header {
+  border-radius: 10px;
+  padding-bottom: 40px;
+  padding-top: 0;
+  background-image: url("/assets/background2-61657329db3ab364c619a93852e9f4bd29dd9de3a626aef29376d953b633e90d.jpg");
+  background-size: cover;
+  margin: 0;
+  clear: both;
+}
+
+/* line 28, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#nav-container {
+  border: 0;
+  border-radius: 10px;
+  background-color: black;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+/* line 40, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar {
+  text-decoration: none;
+  display: inline;
+  overflow: hidden;
+}
+/* line 44, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar #signup-li {
+  float: right;
+  padding-right: 20px;
+}
+/* line 48, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar #login-li {
+  float: right;
+  padding-right: 20px;
+}
+/* line 52, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar #home-li {
+  padding-left: 20px;
+}
+/* line 55, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar li {
+  border: 2px solid black;
+  float: left;
+  list-style: none;
+}
+/* line 60, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar li #home-button {
+  background-color: lightgreen;
+  border: 1px solid green;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  clear: none;
+}
+/* line 70, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar li #login-button {
+  float: right;
+  background-color: lightgreen;
+  border-radius: 10px;
+  border: 1px solid green;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  clear: none;
+}
+/* line 81, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#navbar li #signup-button {
+  float: right;
+  background-color: lightgreen;
+  border-radius: 10px;
+  border: 1px solid green;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  clear: none;
+}
+
+/* line 95, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/application.scss */
+#header-title {
+  padding-bottom: 0;
+  text-align: center;
+  color: #F7F7F7;
+  margin-top: 30px;
+  clear: both;
+}

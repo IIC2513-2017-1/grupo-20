@@ -4,6 +4,7 @@ class RatingsController < ApplicationController
   end
 
   def create
+    
     @rating = Rating.new(rating_params)
     if @rating.save
       redirect_to user_path(params[:id])

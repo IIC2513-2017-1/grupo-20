@@ -24,6 +24,7 @@
             <li>Precio: <%= @rifas.price %></li>
             <li>Numeros restantes: <%= @rifas.numbers%></li>
           </ul>
+        <%=button_to 'Aceptar', rifa_path(@rifas), method: :delete%>
 </div>
 </div>
 </div>

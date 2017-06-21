@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Rifas Maister</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="ornkgtx5J3WVG9qC2VAp+QXBb/zQ8xbF2tq7HspwKGxwr+Uq+hjbCQl6d2BrVEJz0spvVFT82HZTILEx3mvxbA==">
+
+    <link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/comments.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/followers.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/home.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/numeros.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/prizes.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/ratings.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/rifas.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/sessions.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/users.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Rifas%20Maister_archivos/application.css" data-turbolinks-track="reload">
+    <script src="Rifas%20Maister_archivos/jquery.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/jquery_ujs.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/turbolinks.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/action_cable.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/cable.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/comments.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/followers.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/home.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/numeros.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/prizes.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/ratings.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/rifas.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/sessions.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/users.js" data-turbolinks-track="reload"></script>
+<script src="Rifas%20Maister_archivos/application.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+  <div id="header">
+    <div id="nav-container">
+    <ul id="navbar">
+          <li id="home-li"><form class="button_to" method="get" action="/"><input id="home-button" value="Home" type="submit"></form></li>
+          <li id="login-li"><form class="button_to" method="get" action="/login"><input id="login-button" value="Log in" type="submit"></form></li>
+          <li id="signup-li"><form class="button_to" method="get" action="/users/new"><input id="signup-button" value="Sign up" type="submit"></form></li>
+    </ul>
+      </div>
+
+  <div id="header-title">
+    <h1>Rifas Maister</h1>
+  </div>
+  </div>
+    <div class="main">
+  <div class="finder">
+    <ul>
+      <h2>Busca Rifas </h2>
+      <div class="search-notice">
+      <form action="/" accept-charset="UTF-8" method="get"><input name="utf8" value="✓" type="hidden">
+
+
+          <li class="field">
+            <label for="Rifa:">Rifa:</label>
+            <input name="name_search" id="name_search" type="text">
+          </li>
+
+          <li class="field">
+            <label for="Premios:">Premios:</label>
+            <input name="premio_search" id="premio_search" type="text">
+          </li>
+
+          <li class="field">
+            <label for="Precio:">Precio:</label>
+          <div class="field-line">
+            <label for="Min:">Min:</label>
+            <input name="min_price_search" id="min_price_search" min="0" type="number">
+            <label for="Max:">Max:</label>
+            <input name="max_price_search" id="max_price_search" min="100" type="number">
+          </div>
+          </li>
+
+          <li class="field">
+            <label for="Termina_en_menos_de:">Termina en menos de:</label>
+          <div class="field-line" id="date">
+            <input name="date_search" id="date_search" type="number"> (semanas)
+          </div>
+          </li>
+
+          <li><input name="commit" value="Search" class="submit-button" data-disable-with="Search" type="submit"></li>
+</form>    </div>
+    </ul>
+      </div>
+
+  <div class="content-section">
+    <h2>Explora Rifas </h2>
+    <div class="sort">
+
+      <ul>
+        <li>Ordernar por:</li>
+        <li><form class="button_to" method="get" action="/"><input class="sort-button" value="Precio min" type="submit"><input name="order" value="p_min" type="hidden"></form></li>
+        <li><form class="button_to" method="get" action="/"><input class="sort-button" value="Precio max" type="submit"><input name="order" value="p_max" type="hidden"></form></li>
+        <li><form class="button_to" method="get" action="/"><input class="sort-button" value="A-Z" type="submit"><input name="order" value="a_z" type="hidden"></form></li>
+        <li><form class="button_to" method="get" action="/"><input class="sort-button" value="Z-A" type="submit"><input name="order" value="z_a" type="hidden"></form></li>
+        <li><form class="button_to" method="get" action="/"><input class="sort-button" value="Fecha inicio" type="submit"><input name="order" value="init_date" type="hidden"></form></li>
+        <li><form class="button_to" method="get" action="/"><input class="sort-button" value="Fecha termino" type="submit"><input name="order" value="end_date" type="hidden"></form></li>
+      </ul>
+    </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa Celulares</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/1"><input class="raffle-owner" value="mati" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>July 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            iPhone 6, 
+    	            iPhone 5, 
+    	            iPhone 4.
+          </op>
+    	    </ul>
+          <div class="precios" style="">
+            <op class="precio"> $1000</op>
+            <div class="botones" style="/*! position: relative; *//*! /*! float: right; */ *//*! right: 9em; */height: ;/*! height: 120px; */height: 120px;">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/1"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa Tele</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/4"><input class="raffle-owner" value="carlos" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            Televisor Samsung.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $5000</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/3"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa PS4</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/5"><input class="raffle-owner" value="felipe" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            Play Station 4.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $2000</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/4"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa Auto</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/6"><input class="raffle-owner" value="jons" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            Hyundai accent 1.6.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $10000</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/5"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa Bicicletas</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/5"><input class="raffle-owner" value="felipe" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            Bici Bianchi, 
+    	            Bici Treck.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $2000</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/6"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa Tele</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/2"><input class="raffle-owner" value="pepe" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            Televisor Sony.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $500</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/7"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa Sillones</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/4"><input class="raffle-owner" value="carlos" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            Sillon de cuero, 
+    	            Sillon de tela.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $2000</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/8"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa Mesa</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/5"><input class="raffle-owner" value="felipe" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            Mesa de vidrio.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $1500</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/9"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa iPad</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/1"><input class="raffle-owner" value="mati" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            iPad air 3.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $2500</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/10"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+        <div class="raffl">
+          <div class="raffle-title">
+            <h3> Rifa iPhone 7</h3>
+            <go class="button"><form class="button_to" method="get" action="/users/2"><input class="raffle-owner" value="pepe" type="submit"></form></go>
+          </div>
+          <ul class="fechas-premios">
+            <li class="fechas"><b>Fecha de inicio: </b>May 29, 2017 04:15</li>
+    	      <li class="fechas"><b>Fecha de termino: </b>August 03, 2017 04:05</li>
+    	      <op class="premios"><b>Premios: </b>
+    	            iPhone 7.
+          </op>
+    	    </ul>
+          <div class="precios">
+            <op class="precio"> $2000</op>
+            <div class="botones">
+            <op class="buy"></op>
+            <op><form class="button_to" method="get" action="/rifas/2"><input class="see" value="Ver rifa" type="submit"></form></op>
+          </div>
+          </div>
+          </div>
+</div>
+</div>
+
+  <footer>
+      <ul>
+        <li>© Carlos Álvarez - Matías Eynaudi</li>
+      </ul>
+  </footer>
+  
+
+
+</body></html>

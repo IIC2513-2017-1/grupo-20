@@ -1,0 +1,220 @@
+/* line 7, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.user-view {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* line 10, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.user-view div {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  border: 2px #2E2F30 solid;
+  background: white;
+  color: #2E2F30;
+}
+/* line 18, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.user-view h2 {
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+}
+/* line 22, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.user-view h3 {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* line 29, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.profile {
+  height: 225px;
+}
+/* line 31, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.profile img {
+  border: 1px #2E2F30 solid;
+  float: left;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+/* line 37, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.profile ul {
+  list-style-type: none;
+  padding-left: 30px;
+  margin-left: 150px;
+}
+
+/* line 49, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.bought-raffles #own {
+  margin: 30px;
+}
+
+/* line 54, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.processing-raffles #own {
+  margin: 30px;
+}
+
+/* line 60, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+opt.button {
+  float: right;
+  position: relative;
+  right: 0;
+  bottom: -100px;
+}
+
+/* line 67, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonTo {
+  float: right;
+  position: absolute;
+  right: 92px;
+  background-color: lightgrey;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+}
+
+/* line 78, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonTo:hover {
+  background-color: lightblue;
+}
+
+/* line 82, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonRaff {
+  float: right;
+  background-color: lightgreen;
+  border: none;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 51px;
+  padding: 14px 20px;
+}
+
+/* line 94, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonRaff:hover {
+  background-color: green;
+  color: black;
+}
+
+/* line 98, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonEdit {
+  float: right;
+  background-color: lightgrey;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 45px;
+  padding: 14px 20px;
+}
+
+/* line 109, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonEdit:hover {
+  background-color: green;
+  color: black;
+}
+
+/* line 114, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonNew {
+  background-color: lightgrey;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  padding: 14px 25px;
+  margin-left: 30px;
+}
+
+/* line 126, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.buttonNew:hover {
+  background-color: lightblue;
+}
+
+/* line 132, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.title {
+  text-align: center;
+}
+
+/* line 135, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.new_user_form {
+  border: 2px solid #888888;
+  margin: 10px;
+  background-color: #FFFFFF;
+}
+
+/* line 140, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.field {
+  padding: 15px 15px 0 15px;
+}
+
+/* line 143, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.submit-button {
+  float: right;
+}
+
+/* line 147, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+div.info, div.followers, div.following {
+  margin-top: 10px;
+  padding-left: 150px;
+  border: 0;
+  background: 0;
+  color: #2E2F30;
+}
+
+/* line 155, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+div.following p.showing {
+  padding-left: 20px;
+}
+
+/* line 159, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+div.tab-user {
+  margin: 0;
+  margin-left: 30px;
+  border: 0;
+}
+
+/* Style the tab */
+/* line 166, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+div.tab {
+  overflow: hidden;
+  border: 0;
+  background-color: 0;
+  background: 0;
+  margin-bottom: 0;
+}
+
+/* Style the buttons inside the tab */
+/* line 175, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+div.tab button {
+  background-color: lightgrey;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+/* Change background color of buttons on hover */
+/* line 187, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+div.tab button:hover {
+  background-color: lightblue;
+}
+
+/* Create an active/current tablink class */
+/* line 192, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+div.tab button.active {
+  background-color: lightgreen;
+}
+
+/* Style the tab content */
+/* line 197, /home/matias/Escritorio/Computacion/grupo-20/app/assets/stylesheets/users.scss */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}

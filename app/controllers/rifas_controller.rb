@@ -30,6 +30,16 @@ class RifasController < ApplicationController
     end
   end
 
+  def destroy
+    @rifa = Rifa.find(params[:id])
+    @numeros = Numero.where({rifa_id: @rifa.id})
+    @rifa.destroy
+    for n in @numeros
+      n.destroy
+    end
+    redirect_to user_path(params[:id])
+  end
+
   def draw
     @rifas = Rifa.find(params[:id])
     @winner_number = Numero.where({rifa_id: params[:id]}).sample
