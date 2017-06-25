@@ -9,25 +9,27 @@
   </head>
 
   <body>
+  <div id="header-div">
+  </div>
   <div id="header">
     <div id="nav-container">
     <ul id="navbar">
     <% unless current_user%>
-          <li id="home-li"><%= button_to 'Home', root_path, method: "get", id: "home-button" %></li>
-          <li id="login-li"><%= button_to 'Log in', login_path, method: "get", id: "login-button" %></li>
-          <li id="signup-li"><%= button_to 'Sign up', new_user_path, method: "get", id: "signup-button" %></li>
+          <li id="home-li"><%= button_to 'Home', root_path, method: "get",class:"nav-button", id: "home-button" %></li>
+          <li id="login-li"><%= button_to 'Log in', login_path, method: "get", class:"nav-button", id: "login-button" %></li>
+          <li id="signup-li"><%= button_to 'Sign up', new_user_path, method: "get", class:"nav-button", id: "signup-button" %></li>
     <% else %>
-          <li id="home-li"><%= button_to 'Home', root_path, method: "get", id: "home-button"%></li>
-          <li id="login-li"><%= button_to 'log out', logout_path, method: "get", id: "login-button" %></li>
-          <li id="signup-li"><%= button_to "Perfil", user_path(current_user), method: "get", id: "signup-button"%></li>
+          <li id="home-li"><%= button_to 'Home', root_path, method: "get", class:"nav-button", id: "home-button"%></li>
+          <li id="login-li"><%= button_to 'log out', logout_path, method: "get", class:"nav-button", id: "login-button" %></li>
+          <li id="signup-li"><%= button_to "Perfil", user_path(current_user), method: "get", class:"nav-button", id: "signup-button"%></li>
     <%end%>
     </ul>
-      </div>
+  </div>
+    <div id="header-title">
+      <h1>Rifas Maister</h1>
+    </div>
+  </div>
 
-  <div id="header-title">
-    <h1>Rifas Maister</h1>
-  </div>
-  </div>
     <%= yield %>
   <footer>
       <ul>

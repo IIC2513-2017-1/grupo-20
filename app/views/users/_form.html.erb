@@ -12,38 +12,33 @@
         </div>
     <% end %>
 
-<div class="field">
-    <%= f.label :name  %><br>
-    <%= f.input_field :name, placeholder: 'Enter username', error: 'Username error' %><br>
-    </div>
+    <% if current_user.nil? %>
+      <h1 class="form-title">Register</h1>
+    <% else %>
+        <h1 class="form-title">Editar Perfil</h1>
+    <%end %>
 
-    <div class="field">
-    <%= f.label :mail %><br>
-    <%= f.input_field :mail, placeholder: 'user@domain.com' %><br>
-    </div>
+    <%= f.input :name, placeholder: 'Enter username', error: 'Username error' %>
+    <%= f.input :mail, placeholder: 'user@domain.com' %>
+    <%= f.input :mail_confirmation, placeholder: 'user@domain.com' %>
+    <%= f.input :password, placeholder: '********'%>
+    <%= f.input :password_confirmation, placeholder: '********'%>
+    <%= f.input :avatar,  label: "Profile pic"%>
+    <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %>
+    <%= f.hidden_field :avatar_cache %>
 
-    <div class="field">
-    <%= f.label :mail_confirmation %><br>
-    <%= f.input_field :mail_confirmation, placeholder: 'user@domain.com' %><br>
+    <div class="submit-div">
+      <% if current_user.nil? %>
+        <%= f.button :submit, "Register" %>
+      <% else %>
+        <%= f.button :submit, "Edit" %>
+      <%end %>
     </div>
-
-    <div class="field">
-    <%= f.label :password%><br>
-    <%= f.input_field :password, placeholder: '********'%><br>
-    </div>
-
-    <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.input_field :password_confirmation, placeholder: '********'%><br>
-    </div>
-
-    <div class="field">
-      <%= f.label :avatar, 'Profile pic' %><br>
-      <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %><br>
-      <%= f.file_field :avatar %>
-      <%= f.hidden_field :avatar_cache %>
-    </div>
-    <div class="button">
-    <%= f.button :submit %>
+    <div class="submit-div">
+      <% if current_user.nil? %>
+          <%= link_to 'Volver', home_path, method: "get", class: "btn"%>
+      <% else %>
+          <%= link_to 'Volver', user_path(@user), method: "get", class: "btn"%>
+      <%end %>
     </div>
 <% end %>

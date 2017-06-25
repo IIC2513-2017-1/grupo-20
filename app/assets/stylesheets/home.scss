@@ -1,35 +1,23 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  background: #F7F7F7 url(asset_path('background.jpg')) top left repeat;
-  font-family: Helvetica, Arial;
+
+div{
+  margin: 0;
+  padding: 0;
 }
-
-
-h2 {
-  display: block;
-  padding-left: 15px;
-  margin-bottom: 0;
-  padding-bottom: 5px;
-  text-align: left;
+.main{
+  margin-top: 5px;
 }
-
-.content-section {
-  float: right;
-  padding-right: 100px;
-  width: 800px;
-  height: 1000px;
-  margin: 10px 10px 10px 10px;
-  overflow: scroll;
-}
-
-
+// SORT
 .sort {
   padding-top: 0;
-  margin-bottom: 8px;
-  margin-top: 0;
+  margin: 0 auto;
   overflow: hidden;
+  width: 100%;
+  h4{
+    margin: 0;
+  }
   ul {
     padding: 0 5px 0 5px;
     margin: 0 0 10px 0;
@@ -38,6 +26,7 @@ h2 {
       color: black;
       padding-left: 0;
       margin-left: 10px;
+      margin-top: 5px;
     }
     li {
       display: inline;
@@ -45,10 +34,10 @@ h2 {
       margin-bottom: 10px;
       .sort-button {
         border-radius: 10px;
-        color: black;
-        width: 100px;
-        font-size: 12px;
-        background-color: orange;
+        color: white;
+        font-size: medium;
+        width: 110px;
+        background-color: #005b96;
         border: none;
         padding: 3px 0 3px 0;
         text-align: center;
@@ -57,127 +46,9 @@ h2 {
     }
   }
 }
+// RIFAS
 
-.raffl {
-  border-radius: 10px;
-  background-image: url(asset_path('raffleback.jpg'));
-  background-size: cover;
-  border: 3px solid blue;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.raffle-title {
-  color: lightgrey;
-  margin-left: 15px;
-  margin-right: 15px;
-  font-size: 20px;
-  height: 20px;
-  padding-bottom: 1px;
-}
-
-.raffle-owner {
-  float: right;
-  position: relative;
-  bottom: 77px;
-  left: 15px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: lightgreen;
-  font-size: 20px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 10px 25px;
-  width: 120px;
-  height: 59px;
-}
-
-.raffle-owner:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.fechas-premios {
-  background: white;
-  padding-bottom: 100px;
-  padding-top: 15px;
-}
-
-.fechas-premios li.fechas{
-  list-style-type: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  position: relative;
-  right: 20px;
-}
-
-.fechas-premios op.premios{
-  padding-top: 33px;
-  border: 0;
-  padding-bottom: 33px;
-  width: 645px;
-  float: left;
-  position: relative;
-  right: 42px;
-  top: 12px;
-  padding-right: 100px;
-  padding-left: 20px;
-}
-.precios {
-  height: 100px;
-}
-
-.precio {
-  font-size: 50px;
-  float: left;
-  position: relative;
-  top: 15px;
-  left: 40px;
-  color: lightgrey;
-}
-
-.buy {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  top: 63px;
-  background-color: lightblue;
-  padding: 10px 5px;
-  width: 120px;
-  border-radius: 2.5px;
-}
-
-.see {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  bottom: 3.5em;
-  //left: 120px;
-  background-color: lightblue;
-  padding: 10px 5px;
-  width: 120px;
-  border-radius: 2.5px;
-}
-
-.see_2 {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  bottom: 1em;
-  //left: 120px;
-  background-color: lightblue;
-  padding: 10px 5px;
-  width: 120px;
-  border-radius: 2.5px;
-}
-
-.botones{
-  float: right;
-}
-
+// BUSCADORES
 .search-notice {
   padding-top: 0;
   margin-bottom: 10px;
@@ -188,10 +59,13 @@ h2 {
 
 .finder {
   float: left;
-  width: 300px;
-  margin: 10px 10px 10px 10px;
-  border-right: #B01000 solid 2px;
-  border-bottom: #B01000 solid 2px;
+  height: 470px;
+  width: 23%;
+  margin: 10px 40px 10px 10px;
+  background-color: #fbf8f8;
+  border-right: #6497b1 solid 1px;
+  border-bottom: #6497b1 solid 1px;
+  box-shadow: 1px 1px 1px 0 #6497b1;
   border-radius: 10px;
   ul {
     list-style-type: none;
@@ -208,9 +82,12 @@ h2 {
     }
   }
   .field {
+    padding: 5px;
     display: block;
+    width:80%;
     border-radius: 10px;
-    border: 3px solid #F7F7F7;
+    border: #6497b1 solid 1px;
+    box-shadow: 1px 1px 1px 0 #6497b1;
     padding-bottom: 10px;
     margin-bottom: 10px;
     input {
@@ -229,13 +106,15 @@ h2 {
   }
   .submit-button {
     display: block;
-    margin: 20px;
+    float: right;
+    margin: 32px;
+    margin-top: 5px;
     border: 1px solid grey;
     padding: 10px;
     border-radius: 10px;
     color: white;
     font-size: 20px;
-    background-color: skyblue;
+    background-color: #6497b1;
     text-align: center;
   }
 }
@@ -243,15 +122,3 @@ h2 {
   display: inline;
 }
 
-footer {
-  clear: both;
-  background-color: #444444;
-  padding: 100px;
-  margin: 0;
-  ul {
-    list-style-type: none;
-    li {
-      color: white;
-    }
-  }
-}

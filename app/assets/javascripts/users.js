@@ -4,16 +4,25 @@
 
 $(document).on('turbolinks:load', function () {
   $('.see-own').on('click', function (){
+    $('.see-own').addClass('active')
+    $('.see-bought').removeClass('active')
+    $('.see-processing').removeClass('active')
     $('.own-raffles').show()
     $('.bought-raffles').hide()
     $('.processing-raffles').hide()
   });
   $('.see-bought').on('click', function (){
+      $('.see-own').removeClass('active')
+      $('.see-bought').addClass('active')
+      $('.see-processing').removeClass('active')
     $('.own-raffles').hide()
     $('.bought-raffles').show()
     $('.processing-raffles').hide()
   });
   $('.see-processing').on('click', function (){
+      $('.see-own').removeClass('active')
+      $('.see-bought').removeClass('active')
+      $('.see-processing').addClass('active')
     $('.own-raffles').hide()
     $('.bought-raffles').hide()
     $('.processing-raffles').show()
@@ -22,7 +31,7 @@ $(document).on('turbolinks:load', function () {
     $('.see-info').addClass('active')
     $('.see-followers').removeClass('active')
     $('.see-following').removeClass('active')
-    $('.info').show()
+    $('.profile-info').show()
     $('.followers').hide()
     $('.following').hide()
   });
@@ -30,7 +39,7 @@ $(document).on('turbolinks:load', function () {
     $('.see-info').removeClass('active')
     $('.see-followers').addClass('active')
     $('.see-following').removeClass('active')
-    $('.info').hide()
+    $('.profile-info').hide()
     $('.followers').show()
     $('.following').hide()
   });
@@ -38,7 +47,7 @@ $(document).on('turbolinks:load', function () {
     $('.see-info').removeClass('active')
     $('.see-followers').removeClass('active')
     $('.see-following').addClass('active')
-    $('.info').hide()
+    $('.profile-info').hide()
     $('.followers').hide()
     $('.following').show()
   });
