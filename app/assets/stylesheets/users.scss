@@ -42,7 +42,7 @@
       }
     }
   }
-  h2{
+  h2, h3{
     text-align: center;
   }
   //ul {
@@ -183,4 +183,37 @@ div.tab button.active {
    padding: 6px 12px;
    border: 1px solid #ccc;
    border-top: none;
+}
+#follow-unfollow {
+  float: none;
+}
+.follow-unfollow-div{
+  overflow: hidden;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid gray;
+  border-radius: 10px ;
+}
+.new_rating{
+    margin: 10px;
+}
+.following, .followers, .profile-info{
+  border-right: 1px solid gray;
+  overflow: scroll;
+}
+.raffle-button {
+  width: 120px;
+  background-color: #6497b1;
+  text-shadow: 1px 1px black;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: large;
+  padding: 5px;
+  font-weight: bold;
+  margin: 5px;
+  margin-left: 10px
 }
