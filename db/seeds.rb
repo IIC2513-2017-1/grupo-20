@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u1 = User.create(name: 'mati',
+mati = User.create(name: 'mati',
               mail: 'mieynaudi@uc.cl',
               password: '1234',
               admin: false)
@@ -33,14 +33,14 @@ u6 = User.create(name: 'jons',
 
 # user jon no tiene profile pic
 File.open(Rails.root  + "app/assets/images/perfil1.png") do |f|
-   u1.avatar = f
+  mati.avatar = f
    u2.avatar = f
    u3.avatar = f
    u4.avatar = f
    u5.avatar = f
    u6.avatar = f
  end
- u1.save!
+mati.save!
  u2.save!
  u3.save!
  u4.save!
@@ -48,10 +48,10 @@ File.open(Rails.root  + "app/assets/images/perfil1.png") do |f|
  u6.save!
 
 
-r1 = Rifa.create(owner: u1.name,
+r1 = Rifa.create(owner: mati.name,
                  price: 1000,
                  numbers: 800,
-                 user_id: u1.id,
+                 user_id: mati.id,
                  title:"Celulares",
                  end_date: DateTime.new(2017,7,3,4,5,6))
 r2 = Rifa.create(owner: u2.name,
@@ -102,10 +102,10 @@ r9 = Rifa.create(owner: u5.name,
                  user_id: u5.id,
                  title:"Mesa",
                  end_date: DateTime.new(2017,8,3,4,5,6))
-r10 = Rifa.create(owner: u1.name,
+r10 = Rifa.create(owner: mati.name,
                  price: 2500,
                  numbers: 600,
-                 user_id: u1.id,
+                 user_id: mati.id,
                  title:"iPad",
                  end_date: DateTime.new(2017,8,3,4,5,6))
 
@@ -124,20 +124,20 @@ p11 = Prize.create(rifa_id: r8.id, importance: 2, name: 'Sillon de tela')
 p12 = Prize.create(rifa_id: r9.id, importance: 1, name: 'Mesa de vidrio')
 p13 = Prize.create(rifa_id: r10.id, importance: 1, name: 'iPad air 3')
 
-c1 = Comment.create(user_id: u1.id,
-                    user_name: u1.name,
+c1 = Comment.create(user_id: mati.id,
+                    user_name: mati.name,
                     content: 'gran rifa',
                     rifa_id: 3)
 c2 = Comment.create(user_id: u2.id,
                     user_name: u2.name,
                     content: 'bravo',
                     rifa_id: 3)
-c3 = Comment.create(user_id: u1.id,
-                    user_name: u1.name,
+c3 = Comment.create(user_id: mati.id,
+                    user_name: mati.name,
                     content: 'excelte rifa',
                     rifa_id: 4)
-c4 = Comment.create(user_id: u1.id,
-                    user_name: u1.name,
+c4 = Comment.create(user_id: mati.id,
+                    user_name: mati.name,
                     content: 'muy bien',
                     rifa_id: 5)
 
@@ -150,22 +150,22 @@ v3 = Rating.create(valoracion: 4,
 v4 = Rating.create(valoracion: 5,
                    user_id: u4.id)
 v5 = Rating.create(valoracion: 5,
-                   user_id: u1.id)
+                   user_id: mati.id)
 
 
 n1 = Numero.create(number: 3,
                   rifa_id: r1.id,
-                  user_id: u1.id,
+                  user_id: mati.id,
                    aproved: true)
 n1 = Numero.create(number: 5,
                   rifa_id: r1.id,
-                  user_id: u1.id,
+                  user_id: mati.id,
                    aproved: true)
 n1 = Numero.create(number: 6,
                   rifa_id: r1.id,
-                  user_id: u1.id,
+                  user_id: mati.id,
                    aproved: false)
 n1 = Numero.create(number: 9,
                   rifa_id: r2.id,
-                  user_id: u1.id,
+                  user_id: mati.id,
                    aproved: true)

@@ -1,44 +1,81 @@
-<div class="tag">
-  <div class="container">
-        <div class="raffle-view">
-          <h2> Rifa <%= @rifas.title %><br></h2>
+<div class="content-user">
+  <div class="raffle">
+    <div class="raffle-title">
+      <div class="raffle-title-h2">
+        <h2> Rifa <%= @rifas.title %></h2>
+      </div>
+      <div class="raffle-button-div">
+        <%= button_to @rifas.owner, user_path(@rifas.user_id), method: "get", class: "raffle-button"%>
+      </div>
+    </div>
+    <div class="raffle-content">
+      <div class="fechas-premios">
+        <div class="premios">
           <ul>
-            <div class="premios">
-              <li>Premios:
-                <% n_prizes = @rifas.prizes.count() %>
-                <% count = 0 %>
-                <% @rifas.prizes.each do |prize| %>
-                  <% count += 1 %>
-                  <% if count == n_prizes%>
-                      <%= prize.name + '.' %>
-                  <% else %>
-                      <%= prize.name + ', ' %>
-                  <%end%>
-                <%end%>
-              </li>
-            </div>
-            <li>Dueño: <%= @rifas.owner %></li>
-            <li>Fecha de inicio: <%= @rifas.created_at %></li>
-            <li>Fecha de de termino: <%= @rifas.end_date %></li>
-            <li>Precio: <%= @rifas.price %></li>
-            <li>Numeros restantes: <%= @rifas.numbers%></li>
-            <%if @comprados%>
-            <li>Numeros comprados: <%= @comprados%></li>
-            <%end%>
+            <li>Premios: </li>
           </ul>
-          <div class="create">
-            <div class="container">
-             	<%= form_for @numero, url: {controller: :numeros, action: :create} do |f| %>
-            		<div class="field">
-              		<%= f.label :Numero %><br>
-              		<%= f.select :number, ((0..@rifas.numbers).reject{|i| i.in?(@comprados)}.map {|i| [i,i] }) %>
-            		</div>
-            		<div class="actions">
-              		<%= f.submit "Comprar" %>
-            		</div>
-          		<% end %>
-            </div>
-          </div>
         </div>
+        <div class="premios-list">
+          <ol>
+            <% n_prizes = @rifas.prizes.count() %>
+            <% count = 0 %>
+            <% @rifas.prizes.each do |prize| %>
+                <% count += 1 %>
+                <% if count == n_prizes%>
+                    <li><%= prize.name %></li>
+                <% else %>
+                    <li><%= prize.name %></li>
+                <%end%>
+            <%end%>
+          </ol>
+        </div>
+        <div class="fechas">
+          <ul>
+            <li class="fechas">Numeros restantes: <%= @rifas.numbers%></li>
+            <li class="fechas">Fecha de inicio: <%= @rifas.created_at.to_formatted_s(:long) %></li>
+            <li class="fechas">Fecha de termino: <%= @rifas.end_date.to_formatted_s(:long) %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="photos-premios">
+      </div>
+    </div>
+    <div class="raffle-precios">
+      <div class="raffle-precio">
+        <h1><%= " $" + @rifas.price.to_s %></h1>
+      </div>
+        <div class="raffle-button-div">
+          <%=button_to 'Ver rifa', rifa_path(@rifas), method: "get", class: "raffle-button precio-button"%>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="comentarios-div">
+  <h2 class="comentarios-title"> Elige tu número(s):</h2>
+  <div class="numbers">
+  <%row_length = 20
+    total_numbers = @rifas.numbers
+    comprados = @rifas.numeros
+    numeros = []
+    comprados.each do |c|
+      numeros << c.number
+    end
+    for i in 0..((total_numbers/row_length).to_i + 1)%>
+      <div class="number-row">
+       <%for j in 1..row_length %>
+            <% if numeros.include? (i*row_length + j) %>
+               <button class="number-col" disabled="disabled">
+                 <%= i*row_length + j %>
+               </button>
+            <% else %>
+              <button class="number-col">
+                <%= i*row_length + j %>
+              </button>
+            <%end%>
+        <%end%>
+      </div>
+    <%end%>
   </div>
 </div>

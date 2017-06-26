@@ -16,3 +16,23 @@
     background-color: #fbf8f8;
   }
 }
+.numbers{
+  width: 90%;
+  margin: 0 auto;
+}
+.number-col{
+  padding: 3px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  width: 4%;
+  margin: 4px;
+  color: black;
+  background-color: greenyellow;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+}
+.number-col:disabled {
+  background: gray;
+  cursor: default;
+}
