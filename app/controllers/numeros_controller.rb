@@ -10,14 +10,19 @@ class NumerosController < ApplicationController
 
   end
   def create
-    @numero = Numero.new(numero_params)
+    numero_params.inspect
+    params.inspect
+    @numero = Numero.new({number: params[:num_id], rifa_id: params[:rifa_id], user_id: current_user.id})
     @rifas = Rifa.find(params[:rifa_id])
+    p @numero
+    p @rifas
+
     if @numero.save
       @rifas.numbers = @rifas.numbers - 1
       @rifas.save
-      redirect_to user_path(current_user)
+      redirect_voto '/rifas/' + @rifas.id.to_s + "/numeros/new", notice: "Compra exitosa, espera por la autorizacion del admin."
     else
-      redirect_to user_path(current_user), alert: 'No puedes comprar este numero.'
+      redirect_to '/rifas/' + @rifas.id.to_s + "/numeros/new", alert: 'No puedes comprar este numero.'
     end
   end
 

@@ -4,16 +4,26 @@
 
 $(document).on('turbolinks:load', function () {
   var numbers_selected = [];
+    var rifa_id;
   $('.number-col').on('click', function () {
     var number = $(this).data('number');
         if ($(this).hasClass('selected')){
             $(this).removeClass('selected');
             var x = numbers_selected.indexOf(number);
             numbers_selected.splice(x,1);
+            if (numbers_selected.length == 0){
+                rifa_id = null;
+            }
+            console.log(rifa_id);
+            console.log(numbers_selected);
         }
         else {
             $(this).addClass('selected');
+            rifa_id = $(this).data('rifa');
             numbers_selected.push(number);
+            console.log(rifa_id);
+            console.log(numbers_selected);
+
         }
     $('.numbers-selected').text(numbers_selected);
         var price = $(this).data('price');
@@ -22,19 +32,18 @@ $(document).on('turbolinks:load', function () {
 
   });
 
-  $('.buy').on('click', function() {
-    var rifa_id = $('sh').text().trim();
-    $(numbers_selected).each(function(index, item){
+  $('#comprar-btn').on('click', function() {
+      console.log(rifa_id);
+      console.log(numbers_selected);
       $.ajax({
-      url: '/rifas/' + rifa_id + "/numeros/" + item,
+      url: '/rifas/' + rifa_id + "/numeros/" + numbers_selected[0],
       method: 'POST',
       data: {
         'rifa_id': rifa_id,
-        'num_id': item
+        'num_id': numbers_selected[0]
       },
-      success: function (data) { console.log('success'); },
+      success: function () { console.log('success'); },
       dataType: 'json'
   });
-})
-  })
-})
+  });
+});

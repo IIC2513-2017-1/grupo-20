@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :prizes
   end
   resources :rifas do
-    resources :numeros, only: [:new]
+    resources :numeros
   end
 
   resources :followers
