@@ -67,14 +67,10 @@
       <div class="number-row">
        <%for j in 1..row_length %>
             <% if numeros.include? (i*row_length + j) %>
-               <button class="number-col" disabled="disabled">
-                 <%= i*row_length + j %>
-               </button>
+              <%= button_tag i*row_length + j, class:"div number-col", disabled: true, data: {number: i*row_length + j, price: @rifas.price}%>
             <% else %>
-              <button class="number-col">
-                <%= i*row_length + j %>
-              </button>
-              <% end%>
+              <%= button_tag i*row_length + j, class:"number-col", data: {number: i*row_length + j, price: @rifas.price}%>
+            <% end%>
           <%k +=1
             if k == total_numbers
               break
@@ -86,8 +82,12 @@
         end
        end%>
   </div>
-  <sh><%=@rifas.id%></sh>
-  <%= form_for @numero, url: '/rifas/1/numeros/1' do |f|%>
-  <%= f.submit "Comprar"%>
-  <%end%>
+  <div>
+    <p class="numero-p">Numeros seleccionados: <span class="numbers-selected"></span></p>
+    <p class="numero-p">Valor Total: $<span class="total-value"></span></p>
+    <%= form_for @numero, url: '/rifas/1/numeros/1' do |f|%>
+          <% f.hidden_field :numbers,  %>
+          <%= f.submit "Comprar", class: "raffle-button"%>
+    <%end%>
+  </div>
 </div>

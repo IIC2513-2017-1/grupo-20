@@ -3,19 +3,24 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on('turbolinks:load', function () {
-  var numbers_selected = []
+  var numbers_selected = [];
   $('.number-col').on('click', function () {
-    if ($(this).hasClass('selected')){
-        $(this).removeClass('selected')
-    }
-    else {
-    $(this).addClass('selected')
-  }
-  numbers_selected.push($(this).text().trim())
-  $(numbers_selected).each(function(index, item){
-    console.log(item)
-  })
-  })
+    var number = $(this).data('number');
+        if ($(this).hasClass('selected')){
+            $(this).removeClass('selected');
+            var x = numbers_selected.indexOf(number);
+            numbers_selected.splice(x,1);
+        }
+        else {
+            $(this).addClass('selected');
+            numbers_selected.push(number);
+        }
+    $('.numbers-selected').text(numbers_selected);
+        var price = $(this).data('price');
+    $('.total-value').text(numbers_selected.length * price);
+  //numbers_selected.push($(this).text().trim());
+
+  });
 
   $('.buy').on('click', function() {
     var rifa_id = $('sh').text().trim();
