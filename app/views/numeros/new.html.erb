@@ -55,14 +55,15 @@
 <div class="comentarios-div">
   <h2 class="comentarios-title"> Elige tu número(s):</h2>
   <div class="numbers">
-  <%row_length = 20
+  <%row_length = 15
     total_numbers = @rifas.numbers
     comprados = @rifas.numeros
     numeros = []
     comprados.each do |c|
       numeros << c.number
     end
-    for i in 0..((total_numbers/row_length).to_i + 1)%>
+    k=0
+    for i in 0..((total_numbers/row_length).to_i)%>
       <div class="number-row">
        <%for j in 1..row_length %>
             <% if numeros.include? (i*row_length + j) %>
@@ -73,9 +74,16 @@
               <button class="number-col">
                 <%= i*row_length + j %>
               </button>
-            <%end%>
-        <%end%>
+              <% end%>
+          <%k +=1
+            if k == total_numbers
+              break
+            end
+          end%>
       </div>
-    <%end%>
+    <% if k == total_numbers
+        break
+        end
+       end%>
   </div>
 </div>
