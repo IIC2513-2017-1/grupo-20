@@ -19,6 +19,9 @@ class UsersController < ApplicationController
     @numeros = Numero.all
     @rating = Rating.new
     @valoracion = Rating.where({user_id: params[:id]}).average(:valoracion)
+    @followers = Follow.where(follower_id: params[:id]).count()
+    @following = Follow.where({following_id: params[:id]}).count()
+    @creadas = Rifa.where(user_id: params[:id]).count()
     if @valoracion
       @valoracion = @valoracion.round(2)
     end

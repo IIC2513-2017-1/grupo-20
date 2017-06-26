@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   resources :rifas do
     resources :numeros, only: [:new, :create]
   end
-  resources :followers, only: [:destroy]
+
+  resources :followers
+  #delete '/followers', to: 'followers#destroy', as: :user_follower_destroy
+
 
 
 

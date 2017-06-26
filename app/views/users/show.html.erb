@@ -23,27 +23,28 @@
 
         <div class="profile-info">
           <p> Email: <%= @user.mail %></p>
+          <p>Seguidores: <%= @followers.to_s %></p>
+          <p>Siguiendo: <%= @following.to_s %></p>
+          <p>Rifas creadas: <%= @creadas.to_s %></p>
+          </p>
         </div>
 
       <%unless @user.admin%>
         <div class="following">
           <p>Siguiendo:
             <% @user.following.each do |f| %>
-              <p class="showing"><%=f.name%></p>
+              <div >
+                <%= button_to f.name, user_path(f.id), method: "get", class: "raffle-button"%>
+              </div>
             <%end%>
           </p>
         </div>
         <div class="followers">
          <p>Seguidores:
-          <% n_followers = @user.followers.count() %>
-          <% count = 0 %>
-          <% @user.followers.each do |f| %>
-            <% count += 1 %>
-            <% if count == n_followers%>
-                <%= f.name + '.' %>
-            <% else %>
-                <%= f.name + ', ' %>
-            <%end%>
+           <% @user.followers.each do |f| %>
+              <div >
+                <%= button_to f.name, user_path(f.id), method: "get", class: "raffle-button"%>
+              </div>
           <%end%>
         </p>
         </div>
@@ -75,10 +76,90 @@
   <%end%>
     <!--RIFAS COMPRADAS-->
   <%unless @user.admin%>
-    <tf><%=@user.id%></tf>
-    <div class="own-raffles"></div>
-    <div class="bought-raffles">
+    <div class="own-raffles">
       <%if current_user == @user%>
+        <h2>Tus Rifas Creadas</h2>
+      <%end%>
+      <%unless current_user == @user%>
+        <h2>Rifas creadas por <%=@user.name%></h2>
+          <h3>Calificación de <%=@user.name%>: <%=@valoracion%></h3>
+          <div class="follow-unfollow-div">
+          <%if current_user%>
+            <%if Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  @user.id).blank?%>
+              <%unless current_user == @user%>
+                  <p id="notice"><%= notice %></p>
+                  <div class="raffle-button-div" id="follow-unfollow">
+                    <%=button_to 'Follow', user_followers_path(@user), method: :get, :class=>"raffle-button"%>
+                  </div>
+              <%end%>
+            <%end%>
+          <%unless Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  @user.id).blank?%>
+            <% @follow = Follow.where("follower_id  = ? AND following_id = ?", current_user.id,  @user.id) %>
+            <p id="notice">Ya sigues a <%=@user.name%>!</p>
+              <div class="raffle-button-div" id="follow-unfollow">
+                <%=button_to 'Unfollow', follower_path(@follow.ids), method: :delete, :class=>"raffle-button"%></h3>
+              </div>
+            <%= form_for @rating, url:{ controller: :ratings, action: :create } do |f|%>
+              <%= f.label "Califícalo: "%>
+              <%= f.select :valoracion, ((1..5).map {|i| [i,i] })%>
+              <%= f.submit "calificar"%>
+            <%end%>
+          <%end%>
+          <%end%>
+          </div>
+      <%end%>
+      <% @user.rifas.each do |rifa| %>
+        <div class="raffle">
+          <div class="raffle-title">
+            <div class="raffle-title-h2">
+              <h2> Rifa <%= rifa.title %></h2>
+            </div>
+          </div>
+          <div class="raffle-content">
+            <div class="fechas-premios">
+              <div class="premios">
+                <ul>
+                  <li>Premios: </li>
+                </ul>
+              </div>
+              <div class="premios-list">
+                <ol>
+                  <% n_prizes = rifa.prizes.count() %>
+                  <% count = 0 %>
+                  <% rifa.prizes.each do |prize| %>
+                      <% count += 1 %>
+                      <% if count == n_prizes%>
+                          <li><%= prize.name %></li>
+                      <% else %>
+                          <li><%= prize.name %></li>
+                      <%end%>
+                  <%end%>
+                </ol>
+              </div>
+              <div class="fechas">
+                <ul>
+                  <li class="fechas">Numeros restantes: <%= rifa.numbers%></li>
+                  <li class="fechas"><b>Fecha de inicio: </b><%= rifa.created_at.to_formatted_s(:long) %></li>
+                  <li class="fechas"><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
+                </ul>
+              </div>
+            </div>
+            <div class="photos-premios">
+            </div>
+          </div>
+          <div class="raffle-precios">
+            <div class="raffle-precio">
+              <h1><%= " $" + rifa.price.to_s %></h1>
+            </div>
+            <div class="raffle-button-div">
+              <%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "raffle-button precio-button"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%if current_user == @user%>
+      <div class="bought-raffles">
         <h2>Tus Rifas Compradas</h2>
         <% @user.numeros.each do |d| %>
           <%if d.aproved%>
@@ -135,10 +216,69 @@
               </div>
           <% end %>
         <%end%>
-      <%end%>
-    </div>
-    <div class="processing-raffles">
-    </div>
+      </div>
+    <%end%>
+    <%if current_user == @user%>
+      <div class="processing-raffles">
+        <h2>Compras siendo procesadas por Administrador</h2>
+        <% @user.numeros.each do |d| %>
+          <%unless d.aproved%>
+            <%rifa = Rifa.find(d.rifa_id)%>
+            <div class="raffle">
+              <div class="raffle-title">
+                <div class="raffle-title-h2">
+                  <h2> Rifa <%= rifa.title %></h2>
+                </div>
+                <div class="raffle-button-div">
+                  <h2 class="number">Tu numero: <%= d.number%></h2>
+                </div>
+              </div>
+              <div class="raffle-content">
+                <div class="fechas-premios">
+                  <div class="premios">
+                    <ul>
+                      <li>Premios: </li>
+                    </ul>
+                  </div>
+                  <div class="premios-list">
+                    <ol>
+                      <% n_prizes = rifa.prizes.count() %>
+                      <% count = 0 %>
+                      <% rifa.prizes.each do |prize| %>
+                          <% count += 1 %>
+                          <% if count == n_prizes%>
+                              <li><%= prize.name %></li>
+                          <% else %>
+                              <li><%= prize.name %></li>
+                          <%end%>
+                      <%end%>
+                    </ol>
+                  </div>
+                  <div class="fechas">
+                    <ul>
+                      <li class="fechas">Numeros restantes: <%= rifa.numbers%></li>
+                      <li class="fechas"><b>Fecha de inicio: </b><%= rifa.created_at.to_formatted_s(:long) %></li>
+                      <li class="fechas"><b>Fecha de termino: </b><%= rifa.end_date.to_formatted_s(:long) %></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="photos-premios">
+                </div>
+              </div>
+              <div class="raffle-precios">
+                <div class="raffle-precio">
+                  <h1><%= " $" + rifa.price.to_s %></h1>
+                </div>
+                <div class="raffle-button-div">
+                  <%=button_to 'Ver rifa', rifa_path(rifa), method: "get", class: "raffle-button precio-button"%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <%end%>
+      </div>
+    <%end%>
+
   <%end%>
 
   <%if @user.admin%>
