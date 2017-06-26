@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get '/rifas/:id/comment', to: 'comments#new', as: :new_comment
   post '/rifas/:id/comment', to: 'comments#create', as: :create_comment
   root 'home#index'
+  get '/users/:id/own', to: 'users#own', as: :user_own_raffles
+  get '/users/:id/bought', to: 'users#bought', as: :user_bought_raffles
+  get '/users/:id/processing', to: 'users#processing', as: :user_processing_raffles
   resources :users do
     resources :rifas
   end

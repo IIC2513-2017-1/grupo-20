@@ -3,28 +3,43 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on('turbolinks:load', function () {
+  $('tf').hide()
+  var id_user = $('tf').text().trim();
   $('.see-own').on('click', function (){
     $('.see-own').addClass('active')
     $('.see-bought').removeClass('active')
     $('.see-processing').removeClass('active')
-    $('.own-raffles').show()
-    $('.bought-raffles').hide()
-    $('.processing-raffles').hide()
+    $.ajax({
+    url: id_user + "/own",
+    success: function (data) { $('.own-raffles').append(data).show(); },
+    dataType: 'html'
+});
+    $('.bought-raffles').empty().hide()
+    $('.processing-raffles').empty().hide()
   });
   $('.see-bought').on('click', function (){
       $('.see-own').removeClass('active')
       $('.see-bought').addClass('active')
       $('.see-processing').removeClass('active')
-    $('.own-raffles').hide()
-    $('.bought-raffles').show()
-    $('.processing-raffles').hide()
+    $('.own-raffles').empty().hide()
+    $.ajax({
+    url: id_user + "/bought",
+    success: function (data) { $('.bought-raffles').append(data).show(); },
+    dataType: 'html'
+});
+    $('.processing-raffles').empty().hide()
   });
   $('.see-processing').on('click', function (){
       $('.see-own').removeClass('active')
       $('.see-bought').removeClass('active')
       $('.see-processing').addClass('active')
-    $('.own-raffles').hide()
-    $('.bought-raffles').hide()
+    $('.own-raffles').empty().hide()
+    $('.bought-raffles').empty().hide()
+    $.ajax({
+    url: id_user + "/processing",
+    success: function (data) { $('.processing-raffles').append(data); },
+    dataType: 'html'
+});
     $('.processing-raffles').show()
   });
   $('.see-info').on('click', function (){

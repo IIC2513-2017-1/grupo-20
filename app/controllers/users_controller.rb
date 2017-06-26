@@ -37,6 +37,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def own
+    @user = User.find(params[:id])
+    render layout: false
+  end
+
+  def bought
+    @user = User.find(params[:id])
+    render layout: false
+  end
+
+  def processing
+    @user = User.find(params[:id])
+    render layout: false
+  end
+
 private
   def set_user
     @user = User.find(params[:id])
