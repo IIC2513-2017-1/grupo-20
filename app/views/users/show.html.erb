@@ -3,8 +3,10 @@
     <%if current_user == @user%>
       <div class="tab">
         <button class="see-info defaultOpen">Informacion personal</button>
+        <%if current_user.admin == false%>
         <button class="see-following">Siguiendo</button>
         <button class="see-followers">Te Siguen</button>
+        <%end%>
       </div>
 
       <div class="profile">
@@ -51,7 +53,9 @@
       <div class="profile-buttons">
         <div class="raffle-button-div">
           <%= button_to 'Editar Perfil', edit_user_path(@user), method: "get", class: "buttonTo"%>
+          <%if current_user.admin == false%>
           <%= button_to 'Crear Rifa', new_user_rifa_path(current_user.id), method: "get", class: "buttonTo"%>
+          <%end%>
         </div>
       </div>
     <%end%>
@@ -59,9 +63,14 @@
 
   <%if current_user == @user%>
     <div class="tab">
+      <%if current_user.admin == false%>
       <button class="see-own defaultOpen">Rifas Creadas</button>
       <button class="see-bought">Rifas Compradas</button>
       <button class="see-processing">Rifas siendo procesadas</button>
+      <%end%>
+      <%if current_user.admin == true%>
+      <button class="see-own defaultOpen">Rifas Esperando Aprobacion</button>
+      <%end%>
     </div>
   <%end%>
     <!--RIFAS COMPRADAS-->

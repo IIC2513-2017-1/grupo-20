@@ -142,30 +142,30 @@ c4 = Comment.create(user_id: mati.id,
                     rifa_id: 5)
 
 v1 = Rating.create(valoracion: 4,
-                    user_id: u5.id)
+                    user_id: u5.id, rater_id: 2)
 v2 = Rating.create(valoracion: 3,
-                   user_id: u5.id)
+                   user_id: u5.id, rater_id: u3.id)
 v3 = Rating.create(valoracion: 4,
-                   user_id: u5.id)
+                   user_id: u5.id, rater_id: u4.id)
 v4 = Rating.create(valoracion: 5,
-                   user_id: u4.id)
+                   user_id: u4.id, rater_id: u5.id)
 v5 = Rating.create(valoracion: 5,
-                   user_id: mati.id)
+                   user_id: mati.id, rater_id: 2)
 
 
 n1 = Numero.create(number: 3,
-                  rifa_id: r1.id,
+                  rifa_id: 1,
                   user_id: mati.id,
                    aproved: true)
-n1 = Numero.create(number: 5,
-                  rifa_id: r1.id,
+n2 = Numero.create(number: 5,
+                  rifa_id: 1,
                   user_id: mati.id,
                    aproved: true)
-n1 = Numero.create(number: 6,
-                  rifa_id: r1.id,
+n3 = Numero.create(number: 6,
+                  rifa_id: 3,
                   user_id: mati.id,
                    aproved: false)
-n1 = Numero.create(number: 9,
-                  rifa_id: r2.id,
+n4 = Numero.create(number: 9,
+                  rifa_id: 2,
                   user_id: mati.id,
                    aproved: true)

@@ -19,6 +19,9 @@ class UsersController < ApplicationController
     @numeros = Numero.all
     @rating = Rating.new
     @valoracion = Rating.where({user_id: params[:id]}).average(:valoracion)
+    if @valoracion
+      @valoracion = @valoracion.round(2)
+    end
   end
 
   def edit
