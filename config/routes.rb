@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/rifas/:id/draw', to: 'rifas#draw', as: :rifas_draw
   get '/users/:user_id/followers', to: 'followers#create', as: :user_followers
   post '/numeros/:id', to: 'numeros#aprove', as: :aprove_compra
+  post 'rifas/:rifa_id/numeros/:num_id', to: 'numeros#create', as: :create_number
   post '/users/:id', to: 'ratings#create', as: :create_rating
   get '/rifas/:id/comment', to: 'comments#new', as: :new_comment
   post '/rifas/:id/comment', to: 'comments#create', as: :create_comment
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     resources :prizes
   end
   resources :rifas do
-    resources :numeros, only: [:new, :create]
+    resources :numeros, only: [:new]
   end
   resources :followers, only: [:destroy]
 

@@ -37,6 +37,10 @@
   background: gray;
   cursor: default;
 }
+.selected {
+  background: green;
+  cursor: default;
+}
 .comment-form{
   width: 80%;
   margin: 0 auto;

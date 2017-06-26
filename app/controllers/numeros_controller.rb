@@ -34,6 +34,6 @@ class NumerosController < ApplicationController
 
   private
   def numero_params
-    params.require(:numero).permit(:number).merge({rifa_id: params[:rifa_id], user_id: current_user.id, aproved: false})
+    params.merge({rifa_id: params[:rifa_id], user_id: current_user.id, aproved: false, number: params[:num_id]})
   end
 end

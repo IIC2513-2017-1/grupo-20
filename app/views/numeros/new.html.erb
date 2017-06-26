@@ -53,7 +53,7 @@
 
 
 <div class="comentarios-div">
-  <h2 class="comentarios-title"> Elige tu número(s):</h2>
+  <h2 class="comentarios-title"> Elige tu(s) número(s):</h2>
   <div class="numbers">
   <%row_length = 15
     total_numbers = @rifas.numbers
@@ -86,4 +86,8 @@
         end
        end%>
   </div>
+  <sh><%=@rifas.id%></sh>
+  <%= form_for @numero, url: '/rifas/1/numeros/1' do |f|%>
+  <%= f.submit "Comprar"%>
+  <%end%>
 </div>
