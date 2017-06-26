@@ -12,7 +12,7 @@
         </div>
     <% end %>
 
-    <% if current_user.nil? %>
+    <% unless current_user %>
       <h1 class="form-title">Register</h1>
     <% else %>
         <h1 class="form-title">Editar Perfil</h1>
@@ -29,16 +29,16 @@
 
     <div class="submit-div">
       <% unless current_user %>
-        <%= f.button :submit, "Register" %>
+        <%= f.button :submit, "Register" , class: "btn"%>
       <% else %>
-        <%= f.button :submit, "Edit" %>
+        <%= f.button :submit, "Edit", class: "btn" %>
       <%end %>
     </div>
     <div class="submit-div">
       <% unless current_user %>
-          <%= link_to 'Volver', root_path, method: "get", class: "btn"%>
+          <%= link_to 'Home', root_path, method: "get", class: "btn"%>
       <% else %>
-          <%= link_to 'Volver', user_path(@user), method: "get", class: "btn"%>
+          <%= link_to 'Home', user_path(@user), method: "get", class: "btn"%>
       <%end %>
     </div>
 <% end %>

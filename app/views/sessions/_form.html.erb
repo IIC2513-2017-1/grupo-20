@@ -6,7 +6,11 @@
       <%= f.input :name %>
       <%= f.input :password %>
       <div class="submit-div">
-        <%= f.button :submit,  "Login" %>
+        <%= f.button :submit,  "Login" , class: "btn" %>
+      </div>
+      <div class="submit-div">
+        <%= link_to 'Home', root_path, method: "get", class: "btn"%>
       </div>
   <% end %>
+
 </div>
