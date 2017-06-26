@@ -28,15 +28,15 @@
     <%= f.hidden_field :avatar_cache %>
 
     <div class="submit-div">
-      <% if current_user.nil? %>
+      <% unless current_user %>
         <%= f.button :submit, "Register" %>
       <% else %>
         <%= f.button :submit, "Edit" %>
       <%end %>
     </div>
     <div class="submit-div">
-      <% if current_user.nil? %>
-          <%= link_to 'Volver', home_path, method: "get", class: "btn"%>
+      <% unless current_user %>
+          <%= link_to 'Volver', root_path, method: "get", class: "btn"%>
       <% else %>
           <%= link_to 'Volver', user_path(@user), method: "get", class: "btn"%>
       <%end %>

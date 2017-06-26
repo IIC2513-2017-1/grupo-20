@@ -2,23 +2,17 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.raffle-view{
-  border: 2px solid #888888;
-  margin: 10px;
-  background-color: #FFFFFF;
-  h2{
-  margin: 10px;
-  border-bottom: 1px solid #dddddd;
+
+.comentarios-div{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #fbf8f8;
+  border-radius: 20px;
+  overflow: hidden;
+  .comentarios-title{
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #fbf8f8;
   }
-  ul {
-  list-style-type: none;
-  padding-left: 30px;
-  }
-  ul li{
-  padding: 1px;
-  }
-}
-.premios {
-  padding: 50px 10px 50px 10px;
-  border: 1px solid #dddddd;
 }

@@ -47,12 +47,14 @@
         </div>
       <%end%>
     <%end%>
-    <div class="profile-buttons">
-      <div class="raffle-button-div">
-        <%= button_to 'Editar Perfil', edit_user_path(@user), method: "get", class: "buttonTo"%>
-        <%= button_to 'Crear Rifa', new_user_rifa_path(current_user.id), method: "get", class: "buttonTo"%>
+    <%if current_user == @user%>
+      <div class="profile-buttons">
+        <div class="raffle-button-div">
+          <%= button_to 'Editar Perfil', edit_user_path(@user), method: "get", class: "buttonTo"%>
+          <%= button_to 'Crear Rifa', new_user_rifa_path(current_user.id), method: "get", class: "buttonTo"%>
+        </div>
       </div>
-    </div>
+    <%end%>
   </div>
 
   <%if current_user == @user%>
