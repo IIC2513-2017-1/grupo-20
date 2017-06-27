@@ -18,8 +18,6 @@ class NumerosController < ApplicationController
     p @rifas
 
     if @numero.save
-      @rifas.numbers = @rifas.numbers - 1
-      @rifas.save
       redirect_voto '/rifas/' + @rifas.id.to_s + "/numeros/new", notice: "Compra exitosa, espera por la autorizacion del admin."
     else
       redirect_to '/rifas/' + @rifas.id.to_s + "/numeros/new", alert: 'No puedes comprar este numero.'

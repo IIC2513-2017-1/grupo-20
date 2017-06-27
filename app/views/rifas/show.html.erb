@@ -32,7 +32,7 @@
         </div>
         <div class="fechas">
           <ul>
-            <li class="fechas">Numeros restantes: <%= @rifas.numbers%></li>
+            <li class="fechas">Numeros: <%= @rifas.numbers%></li>
             <li class="fechas">Fecha de inicio: <%= @rifas.created_at.to_formatted_s(:long) %></li>
             <li class="fechas">Fecha de termino: <%= @rifas.end_date.to_formatted_s(:long) %></li>
           </ul>
@@ -85,5 +85,3 @@
     <%end%>
   </div>
 </div>
-
-

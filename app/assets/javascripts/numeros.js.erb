@@ -35,15 +35,18 @@ $(document).on('turbolinks:load', function () {
   $('#comprar-btn').on('click', function() {
       console.log(rifa_id);
       console.log(numbers_selected);
-      $.ajax({
-      url: '/rifas/' + rifa_id + "/numeros/" + numbers_selected[0],
-      method: 'POST',
-      data: {
-        'rifa_id': rifa_id,
-        'num_id': numbers_selected[0]
-      },
-      success: function () { console.log('success'); },
-      dataType: 'json'
+      $(numbers_selected).each(function(index, item){
+        $.ajax({
+        url: '/rifas/' + rifa_id + "/numeros/" + item,
+        method: 'POST',
+        data: {
+          'rifa_id': rifa_id,
+          'num_id': item
+        },
+        success: function () { console.log('success'); },
+        dataType: 'json'
   });
+  })
+  location.reload(true);
   });
 });
