@@ -1,13 +1,13 @@
-<div class="create">
-  <div class="container">
-   	<%= form_for @prize, url:{ controller: :prizes, action: :create } do |f| %>
-  		<div class="field">
-        <%= f.label :Premio %><br>
-    		<%= f.text_area :name %><br>
-  		</div>
-  		<div class="actions">
-    		<%= f.submit "Create" %>
-  		</div>
-		<% end %>
-    </div>
+<div class="blanck">
 </div>
+<div class="form-content">
+  <%= simple_form_for  @prize, url:{ controller: :prizes, action: :create } do |f| %>
+      <h1 class="form-title">Agregar un Premio</h1>
+      <%= f.input :name, error:"El premio debe tener título" %>
+      <div class="submit-div">
+        <%= f.button :submit,  "Agregar", class:"btn" %>
+      </div>
+
+  <% end %>
+</div>
+

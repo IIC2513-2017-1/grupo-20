@@ -17,6 +17,11 @@ class PrizesController < ApplicationController
       render 'new'
     end
   end
+  def destroy
+    @premio = Prize.find(params[:id])
+    @premio.destroy
+    redirect_to rifa_prizes_path
+  end
   private
     def prize_params
       params.require(:prize).permit(:name).merge({rifa_id: params[:rifa_id]})

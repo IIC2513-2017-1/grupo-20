@@ -37,7 +37,7 @@ class RifasController < ApplicationController
     for n in @numeros
       n.destroy
     end
-    redirect_to user_path(params[:id])
+    redirect_to user_path(params[:user_id])
   end
 
   def draw

@@ -1,13 +1,14 @@
 class Rifa < ApplicationRecord
   belongs_to :user
-  has_many :prizes
-  has_many :numeros
-  has_many :comments
+  has_many :prizes, dependent: :destroy
+  has_many :numeros, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true
   validates :end_date, presence:true, date: { after: (DateTime.now + 1.week), before: (DateTime.now + 6.months)}  # DateTime.now == crated_at
   validates :numbers, presence:true, numericality: {only_integers: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 5000}
-  validates :price, presence:true, numericality: {only_integers: true, greater_than_or_equal_to: 500, less_than_or_equal_to: 50000}
+  validates :price, presence:true,
+            numericality: {only_integers: true, greater_than_or_equal_to: 500, less_than_or_equal_to: 50000}
 
   def self.search(name, premio, min_price, max_price, date)
     rifas = Rifa.all

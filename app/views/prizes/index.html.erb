@@ -3,7 +3,8 @@
     <h2 class="premio-title">Premios Rifa <%= @rifa.title%></h2>
     <ol class="lista-premio">
       <%@prizes.each do |u|%>
-        <li><%=u.name%></li>
+        <li><%=u.name%> <%=button_to 'Delete Premio', '/rifas/'+@rifa.id.to_s+'/prizes/'+u.id.to_s,
+                                     method: :delete, params:{id: u.id,}%></li>
       <%end%>
     </ol>
     <div class="submit-div premio-div">

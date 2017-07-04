@@ -32,7 +32,7 @@
         </div>
         <div class="fechas">
           <ul>
-            <li class="fechas">Numeros: <%= @rifas.numbers%></li>
+            <li class="fechas">Total Numeros: <%= @rifas.numbers%></li>
             <li class="fechas">Fecha de inicio: <%= @rifas.created_at.to_formatted_s(:long) %></li>
             <li class="fechas">Fecha de termino: <%= @rifas.end_date.to_formatted_s(:long) %></li>
           </ul>
@@ -45,15 +45,31 @@
       <div class="raffle-precio">
         <h1><%= " $" + @rifas.price.to_s %></h1>
       </div>
-      <%if current_user.name == @rifas.owner%>
-          <div class="raffle-button-div">
-            <%=button_to 'Editar', edit_rifa_path(@rifas), method: "get", class:"raffle-button precio-button"%>
-          </div>
-      <%elsif current_user %>
-          <div class="raffle-button-div">
-            <%=button_to '$ Comprar', new_rifa_numero_path(@rifas), method: "get", class:"raffle-button precio-button"%>
-          </div>
-      <%end%>
+      <%if current_user%>
+        <%if current_user.name == @rifas.owner%>
+            <% if @rifas.numeros.length > 0 %>
+                <div class="raffle-warning-h2">
+                <p> No puedes editar una rifa si ya compraron un número.  Números comprados: <%= @rifas.numeros.count%></p>
+              </div>
+            <% else %>
+
+            <div class="raffle-button-div">
+              <%=button_to 'Edit Rifa', edit_rifa_path(@rifas), method: "get", class:"raffle-button precio-button"%>
+            </div>
+            <div class="raffle-button-div">
+              <%=button_to 'Edit Premios', rifa_prizes_path(@rifas), method: "get", class:"raffle-button precio-button"%>
+            </div>
+            <div class="raffle-button-div">
+              <%=button_to 'Delete Rifa', rifa_path(@rifas.id), method: "delete", class:"raffle-button precio-button",
+              params: {user_id: @rifas.user_id}%>
+            </div>
+            <%end%>
+        <%elsif current_user %>
+            <div class="raffle-button-div">
+              <%=button_to '$ Comprar', new_rifa_numero_path(@rifas), method: "get", class:"raffle-button precio-button"%>
+            </div>
+        <%end%>
+        <%end%>
     </div>
   </div>
 </div>
