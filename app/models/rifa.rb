@@ -4,10 +4,10 @@ class Rifa < ApplicationRecord
   has_many :numeros
   has_many :comments
 
-  validates :end_date , date: { after: (DateTime.now + 1.week)}  # DateTime.now == crated_at
-  validates :end_date , date: { before: (DateTime.now + 6.months)}  # DateTime.now == crated_at
-  validates :numbers, numericality: {only_integers: true, greater_than_or_equal_to: 10}
-  validates :price, numericality: {only_integers: true}
+  validates :title, presence: true, uniqueness: true
+  validates :end_date, presence:true, date: { after: (DateTime.now + 1.week), before: (DateTime.now + 6.months)}  # DateTime.now == crated_at
+  validates :numbers, presence:true, numericality: {only_integers: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 5000}
+  validates :price, presence:true, numericality: {only_integers: true, greater_than_or_equal_to: 500, less_than_or_equal_to: 50000}
 
   def self.search(name, premio, min_price, max_price, date)
     rifas = Rifa.all
@@ -51,5 +51,11 @@ class Rifa < ApplicationRecord
       end
 
   end
+
+  # def total_numbers()
+  #   numbers_sold = Numero.where(rifa_id: self.id).count
+  #   numbers = numbers_sold + self.numbers
+  #   numbers
+  # end
 
 end

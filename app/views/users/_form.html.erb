@@ -1,28 +1,16 @@
 <%= simple_form_for @user, :html=> { class: 'new_user_form', multipart: true } do |f| %>
 
-    <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
     <% unless current_user %>
       <h1 class="form-title">Register</h1>
     <% else %>
         <h1 class="form-title">Editar Perfil</h1>
     <%end %>
 
-    <%= f.input :name, placeholder: 'Enter username', error: 'Username error' %>
+    <%= f.input :name, placeholder: 'Enter username', error: 'Debe tener al menos 4 caracteres' %>
     <%= f.input :mail, placeholder: 'user@domain.com' %>
-    <%= f.input :mail_confirmation, placeholder: 'user@domain.com' %>
+    <%= f.input :mail_confirmation, placeholder: 'user@domain.com', required: true %>
     <%= f.input :password, placeholder: '********'%>
-    <%= f.input :password_confirmation, placeholder: '********'%>
+    <%= f.input :password_confirmation, placeholder: '********',  required: true%>
     <%= f.input :avatar,  label: "Profile pic"%>
     <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %>
     <%= f.hidden_field :avatar_cache %>

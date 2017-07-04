@@ -4,12 +4,13 @@
 <div class="form-content">
   <%= simple_form_for(@rifa) do |f| %>
       <h1 class="form-title">Formulario Rifa</h1>
-      <%= f.input :title %>
-      <%= f.input :price %>
-      <%= f.input :numbers %>
-      <%= f.input :end_date, :ampm => true, :minute_step => 15%>
+      <%= f.input :title%>
+      <%= f.input :price, error:"El precio debe oscilar entre $500 y $50.000" %>
+      <%= f.input :numbers, error: 'La cantidad de números disponibles debe estar entre 10 y 5000' %>
+      <%= f.input :end_date, :ampm => true, :minute_step => 15,
+                  error: 'La fecha del sorteo debe terminar al menos en 1 semana desde hoy, y en no más de 6 meses '%>
       <div class="submit-div">
-        <%= f.button :submit,  "Create" %>
+        <%= f.button :submit,  "Create", class:"btn" %>
       </div>
 
   <% end %>

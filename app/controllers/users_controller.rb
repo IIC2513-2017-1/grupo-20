@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.save and params[:mail_confirmation].present? and params[:password_confirmation].present?
       redirect_to root_path
     else
       render 'new'
@@ -61,6 +61,6 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:name, :mail, :password, :avatar)
+    params.require(:user).permit(:name, :mail, :password, :avatar, :mail_confirmation, :password_confirmation)
   end
 end

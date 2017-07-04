@@ -1,9 +1,17 @@
-<div class="main">
-  <div class="container">
-    <%@prizes.each do |u|%>
-      <h2><%=u.name%></h2>
-    <%end%>
-    <p><%= link_to 'Agregar Premio', new_rifa_prize_path()%></p>
-    <p><%= link_to 'Finalizar', user_path(current_user.id)%></p>
+<div class="form-content">
+  <div class="simple_form">
+    <h2 class="premio-title">Premios Rifa <%= @rifa.title%></h2>
+    <ol class="lista-premio">
+      <%@prizes.each do |u|%>
+        <li><%=u.name%></li>
+      <%end%>
+    </ol>
+    <div class="submit-div premio-div">
+      <%= button_to 'Agregar Premio', new_rifa_prize_path(@rifa.id), method: :get, class: "premio-btn"%>
+    </div>
+    <div class="submit-div premio-div">
+      <%= button_to 'Finalizar', rifa_path(@rifa.id), method: :get, class: "premio-btn"%>
+    </div>
   </div>
 </div>
+

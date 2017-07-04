@@ -16,10 +16,9 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: { message: "must be given please" }, uniqueness: true, length: { minimum:4, maximum: 20 }
-  validates :mail, presence: true, uniqueness: true,
+  validates :mail, presence: {message: "Debes ingresar un mail"}, uniqueness: true, confirmation: true,
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  validates_confirmation_of :mail, presence:true
-  validates :password, presence:true, length: { :minimum => 4 }
-  validates_confirmation_of :password, presence:true
+  validates_confirmation_of :mail
+  validates :password, presence:true, length: { :minimum => 4 }, confirmation: true
 
 end

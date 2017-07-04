@@ -45,7 +45,11 @@
       <div class="raffle-precio">
         <h1><%= " $" + @rifas.price.to_s %></h1>
       </div>
-      <%if current_user%>
+      <%if current_user.name == @rifas.owner%>
+          <div class="raffle-button-div">
+            <%=button_to 'Editar', edit_rifa_path(@rifas), method: "get", class:"raffle-button precio-button"%>
+          </div>
+      <%elsif current_user %>
           <div class="raffle-button-div">
             <%=button_to '$ Comprar', new_rifa_numero_path(@rifas), method: "get", class:"raffle-button precio-button"%>
           </div>
